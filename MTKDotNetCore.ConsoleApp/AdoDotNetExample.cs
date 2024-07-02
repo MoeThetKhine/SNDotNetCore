@@ -120,6 +120,8 @@ namespace MTKDotNetCore.ConsoleApp
 
         #endregion
 
+        #region Delete
+
         public void Delete(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
@@ -133,6 +135,9 @@ namespace MTKDotNetCore.ConsoleApp
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             Console.WriteLine(message);
         }
+
+        #endregion
+
 
     }
 }
