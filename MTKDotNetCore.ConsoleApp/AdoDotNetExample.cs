@@ -138,20 +138,22 @@ namespace MTKDotNetCore.ConsoleApp
 
         #endregion
 
+        #region Edit
+
         public void Edit(int id)
         {
-            SqlConnection connection = new SqlConnection (_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
             string query = @"select * from Tbl_Blog where BlogId = @BlogId";
 
-            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
 
             connection.Close();
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No Data Found");
                 return;
@@ -164,6 +166,10 @@ namespace MTKDotNetCore.ConsoleApp
             Console.WriteLine("Blog Content => " + dr["BlogContent"]);
             Console.WriteLine("__________________________");
         }
+
+        #endregion
+
+
 
     }
 }
