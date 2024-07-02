@@ -157,6 +157,7 @@ namespace MTKDotNetCore.ConsoleApp
                 return;
             }
             DataRow dr = dt.Rows[0];
+
             Console.WriteLine("Blog Id => " + dr["BlogId"]);
             Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
             Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
