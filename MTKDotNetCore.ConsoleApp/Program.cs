@@ -27,6 +27,7 @@ Console.WriteLine("Connection Close");
 
 #endregion
 
+#region Data Set
 
 foreach (DataRow dr in dt.Rows)
 {
@@ -36,5 +37,9 @@ foreach (DataRow dr in dt.Rows)
     Console.WriteLine("Blog Content => " + dr["BlogContent"]);
     Console.WriteLine("__________________________");
 }
+
+#endregion
+
+
 
 Console.ReadKey();
