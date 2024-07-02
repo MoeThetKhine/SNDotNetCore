@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace MTKDotNetCore.ConsoleApp
 {
-
     public class AdoDotNetExample
     {
         #region Connection
