@@ -138,5 +138,31 @@ namespace MTKDotNetCore.ConsoleApp
 
         #endregion
 
+        public void Edit(int id)
+        {
+            SqlConnection connection = new SqlConnection (_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+            string query = @"select * from Tbl_Blog where BlogId = @BlogId";
+
+            SqlCommand cmd = new SqlCommand(query,connection);
+            cmd.Parameters.AddWithValue("@BlogId", id);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sqlDataAdapter.Fill(dt);
+
+            connection.Close();
+            if(dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No Data Found");
+                return;
+            }
+            DataRow dr = dt.Rows[0];
+            Console.WriteLine("Blog Id => " + dr["BlogId"]);
+            Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
+            Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
+            Console.WriteLine("Blog Content => " + dr["BlogContent"]);
+            Console.WriteLine("__________________________");
+        }
+
     }
 }
