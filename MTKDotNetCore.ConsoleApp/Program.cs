@@ -11,6 +11,7 @@ SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalo
 
 #endregion
 
+#region DataTable
 
 connection.Open();
 Console.WriteLine("Connection Open");
@@ -23,6 +24,9 @@ sqlDataadapter.Fill(dt);
 
 connection.Close();
 Console.WriteLine("Connection Close");
+
+#endregion
+
 
 foreach (DataRow dr in dt.Rows)
 {
