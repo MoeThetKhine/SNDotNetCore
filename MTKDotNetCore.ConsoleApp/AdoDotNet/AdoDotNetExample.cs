@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 #endregion
 
-namespace MTKDotNetCore.ConsoleApp
+namespace MTKDotNetCore.ConsoleApp.AdoDotNet
 {
     public class AdoDotNetExample
     {
@@ -95,16 +95,16 @@ namespace MTKDotNetCore.ConsoleApp
 
         #region Update
 
-        public void Update(int id,string title, string author, string content)
+        public void Update(int id, string title, string author, string content)
         {
-            SqlConnection connection = new SqlConnection( _sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
             string query = @"Update[dbo].[Tbl_Blog] 
             SET[BlogTitle] = @BlogTitle
             ,[BlogAuthor] = @BlogAuthor
             ,[BlogContent] = @BlogContent Where BlogId = @BlogId";
 
-            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);

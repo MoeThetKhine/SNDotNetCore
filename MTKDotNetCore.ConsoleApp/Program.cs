@@ -1,12 +1,12 @@
 ﻿#region using
 
-using MTKDotNetCore.ConsoleApp;
+using MTKDotNetCore.ConsoleApp.AdoDotNet;
 using System.Data;
 using System.Data.SqlClient;
 
 #endregion
 
-//Console.WriteLine("Hello, World!");
+#region AdoDotNetExample
 
 AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 adoDotNetExample.Read();
@@ -15,5 +15,8 @@ adoDotNetExample.Read();
 //adoDotNetExample.Update(200, "title edited", "author edited", "content edited");
 //adoDotNetExample.Delete(10011);
 //adoDotNetExample.Edit(100);
+
+#endregion
+
 
 Console.ReadKey();
