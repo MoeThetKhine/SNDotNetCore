@@ -64,7 +64,6 @@ namespace MTKDotNetCore.ConsoleApp
 
         #endregion
 
-
         #region Create
 
         public void Create(string title, string author, string content)
