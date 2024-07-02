@@ -1,5 +1,9 @@
-﻿using System.Data;
+﻿#region using
+
+using System.Data;
 using System.Data.SqlClient;
+
+#endregion
 
 Console.WriteLine("Hello, World!");
 
