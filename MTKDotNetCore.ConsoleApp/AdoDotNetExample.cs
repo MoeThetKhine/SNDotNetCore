@@ -56,29 +56,35 @@ namespace MTKDotNetCore.ConsoleApp
 
             #endregion
         }
+
+        #region Create
+
         public void Create(string title, string author, string content)
-           {
-               SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-               connection.Open();
-               string query = @"INSERT INTO [dbo].[Tbl_Blog]
+        {
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+            string query = @"INSERT INTO [dbo].[Tbl_Blog]
               ([BlogTitle]
               ,[BlogAuthor]
               ,[BlogContent])
 
-        VALUES
+                VALUES
               (@BlogTitle
-        ,@BlogAuthor
-        ,@BlogContent)";
-               SqlCommand cmd = new SqlCommand(query, connection);
-               cmd.Parameters.AddWithValue("@BlogTitle", title);
-               cmd.Parameters.AddWithValue("@BlogAuthor", author);
-               cmd.Parameters.AddWithValue("@BlogContent", content);
+               ,@BlogAuthor
+               ,@BlogContent)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogTitle", title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", author);
+            cmd.Parameters.AddWithValue("@BlogContent", content);
 
-               int result = cmd.ExecuteNonQuery();
-               connection.Close();
-               string message = result > 0 ? "Saving Successful" : "Saving Failed";
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
+            string message = result > 0 ? "Saving Successful" : "Saving Failed";
 
-               Console.WriteLine(message);
-           }
+            Console.WriteLine(message);
+        }
+
+        #endregion
+
     }
 }
