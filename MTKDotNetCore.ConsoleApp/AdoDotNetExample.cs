@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 #endregion
 
-
 namespace MTKDotNetCore.ConsoleApp
 {
     public class AdoDotNetExample
