@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 Console.WriteLine("Hello, World!");
 
@@ -8,7 +9,23 @@ SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalo
 
 connection.Open();
 Console.WriteLine("Connection Open");
+
+string query = "select * from Tbl_Blog";
+SqlCommand cmd = new SqlCommand(query, connection);
+SqlDataAdapter sqlDataadapter = new SqlDataAdapter(cmd);
+DataTable dt = new DataTable();
+sqlDataadapter.Fill(dt);
+
 connection.Close();
 Console.WriteLine("Connection Close");
+
+foreach (DataRow dr in dt.Rows)
+{
+    Console.WriteLine("Blog Id => " + dr["BlogId"]);
+    Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
+    Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
+    Console.WriteLine("Blog Content => " + dr["BlogContent"]);
+    Console.WriteLine("__________________________");
+}
 
 Console.ReadKey();
