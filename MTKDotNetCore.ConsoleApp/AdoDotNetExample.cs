@@ -26,6 +26,8 @@ namespace MTKDotNetCore.ConsoleApp
 
         #endregion
 
+        #region Read
+
         public void Read()
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
@@ -59,6 +61,9 @@ namespace MTKDotNetCore.ConsoleApp
 
             #endregion
         }
+
+        #endregion
+
 
         #region Create
 
