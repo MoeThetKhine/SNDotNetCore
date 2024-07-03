@@ -36,6 +36,7 @@ public class DapperExample
         }
     }
     #endregion
+
     #region Edit
     public void Edit(int id)
     {
