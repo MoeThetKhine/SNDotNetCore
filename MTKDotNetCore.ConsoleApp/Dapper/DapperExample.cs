@@ -85,6 +85,7 @@ public class DapperExample
     }
     #endregion
 
+    #region Update
     public void Update(int id,string title,string author,string content)
     {
         var item = new BlogModel
@@ -105,4 +106,5 @@ public class DapperExample
         string message = result > 0 ? "Updating Successful" : "Updating Fail";
         Console.WriteLine(message);
     }
+    #endregion
 }
