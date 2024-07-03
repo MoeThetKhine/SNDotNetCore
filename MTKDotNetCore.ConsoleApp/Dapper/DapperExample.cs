@@ -49,4 +49,30 @@ public class DapperExample
     }
     #endregion
 
+    public void Create(string title, string author, string content)
+    {
+        var item = new BlogModel
+        {
+            BlogTitle = title,
+            BlogAuthor = author,
+            BlogContent = content
+        };
+        string query = @"INSERT INTO [dbo].[Tbl_Blog]
+              ([BlogTitle]
+              ,[BlogAuthor]
+              ,[BlogContent])
+
+                VALUES
+              (@BlogTitle
+               ,@BlogAuthor
+               ,@BlogContent)";
+
+        using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+        int result = db.Execute(query, item);
+
+        string message = result > 0 ? "Saving Successful" : "Saving Fail";
+        Console.WriteLine(message);
+
+    }
+
 }
