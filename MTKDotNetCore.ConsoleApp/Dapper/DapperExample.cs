@@ -49,6 +49,7 @@ public class DapperExample
     }
     #endregion
 
+    #region Create
     public void Create(string title, string author, string content)
     {
         var item = new BlogModel
@@ -74,5 +75,5 @@ public class DapperExample
         Console.WriteLine(message);
 
     }
-
+    #endregion
 }
