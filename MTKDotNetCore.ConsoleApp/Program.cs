@@ -19,7 +19,13 @@ using System.Data.SqlClient;
 
 #endregion
 
+#region DapperExample
+
 DapperExample dapperExample = new DapperExample();
 dapperExample.Run();
+
+#endregion
+
+
 
 Console.ReadKey();
