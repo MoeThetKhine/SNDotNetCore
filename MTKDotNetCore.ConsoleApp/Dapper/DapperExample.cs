@@ -108,5 +108,19 @@ public class DapperExample
     }
     #endregion
 
-    
+    private void Delete(int id)
+    {
+        var item = new BlogModel
+        {
+            BlogId = id
+        };
+        string query = @"Delete from [dbo].[Tbl_Blog]
+        WHERE BlogId = @BlogId";
+
+        using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+
+        int result = db.Execute(query,item);
+        string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
+        Console.WriteLine(message);
+    }
 }
