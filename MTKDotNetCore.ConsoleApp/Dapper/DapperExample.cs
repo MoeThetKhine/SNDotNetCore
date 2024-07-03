@@ -24,7 +24,7 @@ public class DapperExample
     #endregion
 
     #region Read
-    public void Read()
+    private void Read()
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
 
@@ -40,7 +40,7 @@ public class DapperExample
     #endregion
 
     #region Edit
-    public void Edit(int id)
+    private void Edit(int id)
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
                   
@@ -58,7 +58,7 @@ public class DapperExample
     #endregion
 
     #region Create
-    public void Create(string title, string author, string content)
+    private void Create(string title, string author, string content)
     {
         var item = new BlogModel
         {
@@ -86,7 +86,7 @@ public class DapperExample
     #endregion
 
     #region Update
-    public void Update(int id,string title,string author,string content)
+    private void Update(int id,string title,string author,string content)
     {
         var item = new BlogModel
         {
@@ -107,4 +107,6 @@ public class DapperExample
         Console.WriteLine(message);
     }
     #endregion
+
+    
 }
