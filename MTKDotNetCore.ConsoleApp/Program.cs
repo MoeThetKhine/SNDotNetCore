@@ -26,5 +26,4 @@ dapperExample.Run();
 
 #endregion
 
-
 Console.ReadKey();
