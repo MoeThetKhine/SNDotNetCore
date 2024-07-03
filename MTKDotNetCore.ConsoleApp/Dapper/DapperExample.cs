@@ -17,7 +17,9 @@ public class DapperExample
         // Read();
         //Edit(200);
         //Edit(2);
-        Create("testingtitle2", "testingauthor2", "testingcontnent2");
+        // Create("testingtitle2", "testingauthor2", "testingcontnent2");
+        Update(2,"edited title2", "edited author2", "edited contnent2");
+
     }
     #endregion
 
@@ -82,4 +84,25 @@ public class DapperExample
 
     }
     #endregion
+
+    public void Update(int id,string title,string author,string content)
+    {
+        var item = new BlogModel
+        {
+            BlogId = id,
+            BlogTitle = title,
+            BlogAuthor = author,
+            BlogContent = content
+        };
+        string query = @"Update [dbo].[Tbl_Blog] 
+        SET [BlogTitle] = @BlogTitle
+        ,[BlogAuthor] = @BlogAuthor
+        ,[BlogContent] = @BlogContent WHERE BlogId = @BlogId";
+
+        using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+
+        int result = db.Execute(query, item);
+        string message = result > 0 ? "Updating Successful" : "Updating Fail";
+        Console.WriteLine(message);
+    }
 }
