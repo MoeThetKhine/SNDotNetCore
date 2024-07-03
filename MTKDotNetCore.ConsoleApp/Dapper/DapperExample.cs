@@ -18,6 +18,7 @@ public class DapperExample
         //Edit(2);
         Create("testingtitle2", "testingauthor2", "testingcontnent2");
     }
+    #region Read
     public void Read()
     {
         using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
@@ -31,6 +32,7 @@ public class DapperExample
             Console.WriteLine(blog.BlogContent);
         }
     }
+    #endregion
     #region Edit
     public void Edit(int id)
     {
