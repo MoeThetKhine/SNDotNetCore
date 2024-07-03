@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 #endregion
 
-
 namespace MTKDotNetCore.ConsoleApp.Dapper;
 
 public class BlogModel
