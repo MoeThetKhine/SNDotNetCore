@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MTKDotNetCore.ConsoleApp.Dapper
 {
+    #region ConnectionStrings
     public class ConnectionStrings
     {
         public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -17,4 +18,5 @@ namespace MTKDotNetCore.ConsoleApp.Dapper
                  TrustServerCertificate = true,
     };
     }
+    #endregion
 }
