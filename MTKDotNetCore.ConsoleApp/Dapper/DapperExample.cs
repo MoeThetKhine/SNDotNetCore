@@ -19,7 +19,7 @@ public class DapperExample
         //Edit(2);
         // Create("testingtitle2", "testingauthor2", "testingcontnent2");
         //Update(2,"edited title2", "edited author2", "edited contnent2");
-        Delete(13);
+        //Delete(13);
         
 
     }
