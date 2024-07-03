@@ -1,6 +1,7 @@
 ﻿#region using
 
 using MTKDotNetCore.ConsoleApp.AdoDotNet;
+using MTKDotNetCore.ConsoleApp.Dapper;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,8 +9,8 @@ using System.Data.SqlClient;
 
 #region AdoDotNetExample
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Read();
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.Read();
 //adoDotNetExample.Create("testing_title","testing_author","testing_content");
 //adoDotNetExample.Update(1, "title edited", "author edited", "content edited");
 //adoDotNetExample.Update(200, "title edited", "author edited", "content edited");
@@ -18,5 +19,7 @@ adoDotNetExample.Read();
 
 #endregion
 
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 
 Console.ReadKey();
