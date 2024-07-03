@@ -11,13 +11,16 @@ namespace MTKDotNetCore.ConsoleApp.Dapper;
 
 public class DapperExample
 {
-   public void Run()
+    #region Run
+    public void Run()
     {
         // Read();
         //Edit(200);
         //Edit(2);
         Create("testingtitle2", "testingauthor2", "testingcontnent2");
     }
+    #endregion
+
     #region Read
     public void Read()
     {
