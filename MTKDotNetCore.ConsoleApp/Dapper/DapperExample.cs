@@ -19,7 +19,7 @@ public class DapperExample
         //Edit(2);
         // Create("testingtitle2", "testingauthor2", "testingcontnent2");
         //Update(2,"edited title2", "edited author2", "edited contnent2");
-        //Delete(13);
+        Delete(13);
         
 
     }
@@ -110,6 +110,8 @@ public class DapperExample
     }
     #endregion
 
+    #region Delete
+
     private void Delete(int id)
     {
         var item = new BlogModel
@@ -125,4 +127,5 @@ public class DapperExample
         string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
         Console.WriteLine(message);
     }
+    #endregion
 }
