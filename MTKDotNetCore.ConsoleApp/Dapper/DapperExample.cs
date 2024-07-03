@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 #endregion
 
 namespace MTKDotNetCore.ConsoleApp.Dapper;
-
 public class DapperExample
 {
     #region Run
