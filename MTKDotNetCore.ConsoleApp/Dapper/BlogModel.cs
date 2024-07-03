@@ -20,5 +20,4 @@ public class BlogModel
 }
 //public record BlogEntity(int BlogId, string BlogTitle,string BlogAuthor,string BlogContent);
 
-
 #endregion
