@@ -108,12 +108,13 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         #endregion
 
 
+        #region Delete
 
         private void Delete(int id)
         {
-           
-            var item =  db.Blogs.FirstOrDefault(x=> x.BlogId == id);
-            if(item is null)
+
+            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
             {
                 Console.WriteLine("No Data Found");
             }
@@ -124,6 +125,9 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             Console.WriteLine(message);
 
         }
+
+        #endregion
+
 
     }
 }
