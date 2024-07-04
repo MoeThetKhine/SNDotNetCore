@@ -16,7 +16,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         }
         private void Read()
         {
-            AppDbContext db = new AppDbContext();
             var lst = db.Blogs.ToList();
             foreach (BlogModel item in lst)
             {
@@ -24,7 +23,27 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
                 Console.WriteLine(item.BlogContent);
+                Console.WriteLine("_________________________");
             }
+        }
+        private void Edit(int id)
+        {
+            var item = db.Blogs.FirstOrDefault(x=>x.BlogId == id);
+            //foreach(BlogModel x in db.Blogs)
+            //{
+            //    if (x.BlogId == id)
+            // }
+            if (item is null)
+            {
+                Console.WriteLine("No Data Found");
+                return;
+            }
+            Console.WriteLine(item.BlogId);
+            Console.WriteLine(item.BlogTitle);
+            Console.WriteLine(item.BlogAuthor);
+            Console.WriteLine(item.BlogContent);
+                
+
         }
 
     }
