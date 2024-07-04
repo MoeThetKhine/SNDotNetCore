@@ -20,7 +20,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         public IActionResult Read()
         {
             var lst = _context.Blogs.ToList();
-
             return Ok(lst);
         }
 
