@@ -14,7 +14,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         public BlogController()
         {
             _context = new AppDbContext();
-
         }
 
 
