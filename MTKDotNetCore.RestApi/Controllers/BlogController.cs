@@ -16,12 +16,14 @@ namespace MTKDotNetCore.RestApi.Controllers
             _context = new AppDbContext();
         }
 
+        #region Read
         [HttpGet]
         public IActionResult Read()
         {
             var lst = _context.Blogs.ToList();
             return Ok(lst);
         }
+        #endregion
 
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
