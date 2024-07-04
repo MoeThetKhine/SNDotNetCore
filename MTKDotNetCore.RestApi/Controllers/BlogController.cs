@@ -95,10 +95,12 @@ namespace MTKDotNetCore.RestApi.Controllers
         }
         #endregion
 
+        #region Delete
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var item = _context.Blogs.FirstOrDefault(x => x.BlogId==id);
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 return NotFound("No Data Found");
@@ -108,6 +110,9 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             return Ok(message);
         }
+        #endregion
+
+
 
     }
 }
