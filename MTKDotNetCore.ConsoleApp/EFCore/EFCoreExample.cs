@@ -24,7 +24,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             // Update(14,"Title updated", "Author updated", "Content updated");
             Delete(14);
         }
-
         #endregion
 
         #region Read
