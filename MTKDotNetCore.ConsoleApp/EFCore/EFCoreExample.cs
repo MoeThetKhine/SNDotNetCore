@@ -14,15 +14,19 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
     {
         private readonly AppDbContext db = new AppDbContext();
 
+        #region Run
         public void Run()
         {
-             Read();
+            Read();
             // Edit(2);
             // Edit(22);
             // Create("Title created", "Author created", "Content created");
             // Update(14,"Title updated", "Author updated", "Content updated");
             Delete(14);
         }
+
+        #endregion
+
         private void Read()
         {
             var lst = db.Blogs.ToList();
