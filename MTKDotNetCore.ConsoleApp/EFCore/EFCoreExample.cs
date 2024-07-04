@@ -64,8 +64,9 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
         #endregion
 
+        #region Create
 
-        private void Create(string title,string author,string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogModel
             {
@@ -79,6 +80,9 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             string message = result > 0 ? "Creating Successful" : "Creating Fail";
             Console.WriteLine(message);
         }
+        #endregion
+
+
 
         private void Update(int id ,string title,string author,string content)
         {
