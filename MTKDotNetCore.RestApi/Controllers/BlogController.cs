@@ -37,7 +37,9 @@ namespace MTKDotNetCore.RestApi.Controllers
             }
             return Ok(item);
         }
-        #endregion 
+        #endregion
+
+        #region Create
 
         [HttpPost]
         public IActionResult Create(BlogModel blog)
@@ -47,6 +49,10 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Creating Successful" : "Creating Fail";
             return Ok(message);
         }
+
+        #endregion
+
+        #region Update
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, BlogModel blog)
@@ -64,6 +70,10 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+        #endregion
+
+
+
 
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
