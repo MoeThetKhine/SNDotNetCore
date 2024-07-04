@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿#region using
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+#endregion
 
 namespace MTKDotNetCore.RestApi.Model
 {
