@@ -42,7 +42,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         }
         #endregion
 
-
         private void Edit(int id)
         {
             var item = db.Blogs.FirstOrDefault(x=>x.BlogId == id);
