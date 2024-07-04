@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 #endregion
 
 
-
 namespace MTKDotNetCore.ConsoleApp.EFCore
 {
     public class AppDbContext: DbContext
