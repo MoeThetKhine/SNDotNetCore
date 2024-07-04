@@ -15,6 +15,7 @@ namespace MTKDotNetCore.RestApi.Controllers
         {
             _context = new AppDbContext();
         }
+
         [HttpGet]
         public IActionResult Read()
         {
@@ -30,7 +31,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             {
                 return NotFound("No Data Found");
             }
-
 
             return Ok(item);
         }
