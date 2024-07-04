@@ -42,9 +42,10 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         }
         #endregion
 
+        #region Edit
         private void Edit(int id)
         {
-            var item = db.Blogs.FirstOrDefault(x=>x.BlogId == id);
+            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
             //foreach(BlogModel x in db.Blogs)
             //{
             //    if (x.BlogId == id)
@@ -60,6 +61,9 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             Console.WriteLine(item.BlogContent);
             Console.WriteLine("____________________");
         }
+
+        #endregion
+
 
         private void Create(string title,string author,string content)
         {
