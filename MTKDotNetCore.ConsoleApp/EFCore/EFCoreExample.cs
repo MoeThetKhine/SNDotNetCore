@@ -118,7 +118,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             Console.WriteLine(message);
-
         }
 
         #endregion
