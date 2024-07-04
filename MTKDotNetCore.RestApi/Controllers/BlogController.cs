@@ -25,6 +25,8 @@ namespace MTKDotNetCore.RestApi.Controllers
         }
         #endregion
 
+        #region Edit
+
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
@@ -35,6 +37,7 @@ namespace MTKDotNetCore.RestApi.Controllers
             }
             return Ok(item);
         }
+        #endregion 
 
         [HttpPost]
         public IActionResult Create(BlogModel blog)
