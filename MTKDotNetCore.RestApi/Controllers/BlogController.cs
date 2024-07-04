@@ -21,7 +21,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         {
             var lst = _context.Blogs.ToList();
 
-
             return Ok(lst);
         }
 
