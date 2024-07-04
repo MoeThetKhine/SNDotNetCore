@@ -100,7 +100,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             Console.WriteLine(message);
-
         }
 
 
