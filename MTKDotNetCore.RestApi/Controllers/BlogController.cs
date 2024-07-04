@@ -14,13 +14,21 @@ namespace MTKDotNetCore.RestApi.Controllers
         public BlogController()
         {
             _context = new AppDbContext();
+
+
         }
+
+
         [HttpGet]
         public IActionResult Read()
         {
             var lst = _context.Blogs.ToList();
+
+
             return Ok(lst);
         }
+
+
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
@@ -29,8 +37,13 @@ namespace MTKDotNetCore.RestApi.Controllers
             {
                 return NotFound("No Data Found");
             }
+
+
             return Ok(item);
         }
+
+
+
         [HttpPost]
         public IActionResult Create(BlogModel blog)
         {
@@ -39,6 +52,8 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Creating Successful" : "Creating Fail";
             return Ok(message);
         }
+
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, BlogModel blog)
         {
@@ -75,6 +90,8 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+
+
 
     }
 }
