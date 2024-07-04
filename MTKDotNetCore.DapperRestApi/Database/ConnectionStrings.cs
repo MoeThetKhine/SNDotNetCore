@@ -1,9 +1,7 @@
 ﻿using System.Data.SqlClient;
 
-namespace MTKDotNetCore.EFCoreRestApi.Database
+namespace MTKDotNetCore.DapperRestApi.Database
 {
-    #region ConnectionStrings
-
     public class ConnectionStrings
     {
         public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -14,7 +12,4 @@ namespace MTKDotNetCore.EFCoreRestApi.Database
             TrustServerCertificate = true,
         };
     }
-
-    #endregion
-
 }

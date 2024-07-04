@@ -2,12 +2,13 @@
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MTKDotNetCore.EFCoreRestApi.Database;
 using MTKDotNetCore.RestApi.Database;
 using MTKDotNetCore.RestApi.Model;
 
 #endregion 
 
-namespace MTKDotNetCore.RestApi.Controllers
+namespace MTKDotNetCore.EFCoreRestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.EFCoreRestApi.Model;
+using MTKDotNetCore.DapperRestApi.Model;
 
-namespace MTKDotNetCore.EFCoreRestApi.Database
+namespace MTKDotNetCore.DapperRestApi.Database
 {
-    internal class AppDbContext : DbContext 
+    internal class AppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
         }
-       public DbSet<BlogModel> Blogs { get; set; }
+        public DbSet<BlogModel> Blog { get; set; }
     }
 }
