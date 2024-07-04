@@ -72,6 +72,8 @@ namespace MTKDotNetCore.RestApi.Controllers
         }
         #endregion
 
+        #region Patch
+
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
         {
@@ -91,6 +93,7 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+        #endregion
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
