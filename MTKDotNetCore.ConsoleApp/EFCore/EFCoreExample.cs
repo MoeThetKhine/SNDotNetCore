@@ -16,7 +16,8 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             // Edit(2);
             // Edit(22);
             // Create("Title created", "Author created", "Content created");
-           // Update(14,"Title updated", "Author updated", "Content updated");
+            // Update(14,"Title updated", "Author updated", "Content updated");
+            Delete(14);
         }
         private void Read()
         {
@@ -84,6 +85,22 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             Console.WriteLine(message);
              
+        }
+
+        private void Delete(int id)
+        {
+           
+            var item =  db.Blogs.FirstOrDefault(x=> x.BlogId == id);
+            if(item is null)
+            {
+                Console.WriteLine("No Data Found");
+            }
+            db.Blogs.Remove(item);
+            int result = db.SaveChanges();
+
+            string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
+            Console.WriteLine(message);
+
         }
 
     }
