@@ -56,7 +56,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
             Console.WriteLine("____________________");
-                
 
         }
 
