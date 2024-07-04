@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 
 
-
 namespace MTKDotNetCore.ConsoleApp.EFCore
 {
     [Table("Tbl_Blog")]
