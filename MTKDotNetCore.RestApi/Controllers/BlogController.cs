@@ -7,7 +7,6 @@ using MTKDotNetCore.RestApi.Model;
 
 #endregion 
 
-
 namespace MTKDotNetCore.RestApi.Controllers
 {
     [Route("api/[controller]")]
