@@ -121,6 +121,5 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         }
 
         #endregion
-
     }
 }
