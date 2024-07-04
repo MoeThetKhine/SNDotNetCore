@@ -10,7 +10,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 {
     public class AppDbContext: DbContext
     {
-       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
