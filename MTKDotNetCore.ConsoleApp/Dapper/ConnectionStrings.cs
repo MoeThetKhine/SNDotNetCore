@@ -20,7 +20,7 @@ namespace MTKDotNetCore.ConsoleApp.Dapper
                  InitialCatalog = "OJTBatch1",
                  IntegratedSecurity = true,
                  TrustServerCertificate = true,
-    };
+        };
     }
     #endregion
 }

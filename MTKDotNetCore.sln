@@ -5,7 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.ConsoleApp", "MTKDotNetCore.ConsoleApp", "{FCE8078A-CDAC-4EA1-B56C-C6B2E1562E4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.ConsoleApp", "MTKDotNetCore.ConsoleApp\MTKDotNetCore.ConsoleApp.csproj", "{638EA946-59F3-422E-9E41-6F8C7CE6871B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.ConsoleApp", "MTKDotNetCore.ConsoleApp\MTKDotNetCore.ConsoleApp.csproj", "{638EA946-59F3-422E-9E41-6F8C7CE6871B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.RestApi", "MTKDotNetCore.RestApi", "{C6B923C8-7D20-4841-9D05-46FDDBDB5C53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.RestApi", "MTKDotNetCore.RestApi\MTKDotNetCore.RestApi.csproj", "{F3799F74-7A7E-477D-BC36-E2C09267AD00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{638EA946-59F3-422E-9E41-6F8C7CE6871B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{638EA946-59F3-422E-9E41-6F8C7CE6871B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{638EA946-59F3-422E-9E41-6F8C7CE6871B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3799F74-7A7E-477D-BC36-E2C09267AD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3799F74-7A7E-477D-BC36-E2C09267AD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3799F74-7A7E-477D-BC36-E2C09267AD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3799F74-7A7E-477D-BC36-E2C09267AD00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{638EA946-59F3-422E-9E41-6F8C7CE6871B} = {FCE8078A-CDAC-4EA1-B56C-C6B2E1562E4A}
+		{F3799F74-7A7E-477D-BC36-E2C09267AD00} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B849E2-64E3-4EF3-8C63-B3779F504E7B}
