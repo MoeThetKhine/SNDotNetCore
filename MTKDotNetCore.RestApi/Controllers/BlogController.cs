@@ -15,7 +15,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         {
             _context = new AppDbContext();
 
-
         }
 
 
