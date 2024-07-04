@@ -27,6 +27,7 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
         #endregion
 
+        #region Read
         private void Read()
         {
             var lst = db.Blogs.ToList();
@@ -39,6 +40,9 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
                 Console.WriteLine("_________________________");
             }
         }
+        #endregion
+
+
         private void Edit(int id)
         {
             var item = db.Blogs.FirstOrDefault(x=>x.BlogId == id);
