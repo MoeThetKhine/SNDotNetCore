@@ -43,7 +43,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             return Ok(message);
         }
 
-
         [HttpPut("{id}")]
         public IActionResult Update(int id, BlogModel blog)
         {
