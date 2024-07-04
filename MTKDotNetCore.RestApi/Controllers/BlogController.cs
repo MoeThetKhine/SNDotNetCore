@@ -31,7 +31,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             {
                 return NotFound("No Data Found");
             }
-
             return Ok(item);
         }
 
