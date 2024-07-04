@@ -35,7 +35,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult Create(BlogModel blog)
         {
