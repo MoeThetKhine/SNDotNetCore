@@ -82,7 +82,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         #endregion
 
         #region Update
-
         private void Update(int id, string title, string author, string content)
         {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id); // id exists or not
