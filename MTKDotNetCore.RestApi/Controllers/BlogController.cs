@@ -31,6 +31,14 @@ namespace MTKDotNetCore.RestApi.Controllers
             }
             return Ok(item);
         }
+        [HttpPost]
+        public IActionResult Create(BlogModel blog)
+        {
+            _context.Blogs.Add(blog);
+            var result = _context.SaveChanges();
+            string message = result > 0 ? "Creating Successful" : "Creating Fail";
+            return Ok(message);
+        }
         
 
     }
