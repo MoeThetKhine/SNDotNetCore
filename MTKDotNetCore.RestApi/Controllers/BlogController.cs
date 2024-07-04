@@ -59,6 +59,7 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
         {
@@ -91,7 +92,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             var result = _context.SaveChanges();
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             return Ok(message);
-
         }
 
 
