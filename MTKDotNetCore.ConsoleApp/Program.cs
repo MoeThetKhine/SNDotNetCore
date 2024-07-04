@@ -2,6 +2,7 @@
 
 using MTKDotNetCore.ConsoleApp.AdoDotNet;
 using MTKDotNetCore.ConsoleApp.Dapper;
+using MTKDotNetCore.ConsoleApp.EFCore;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -21,9 +22,12 @@ using System.Data.SqlClient;
 
 #region DapperExample
 
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
 
 #endregion
+
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Run();
 
 Console.ReadKey();
