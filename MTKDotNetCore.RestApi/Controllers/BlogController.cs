@@ -23,7 +23,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             return Ok(lst);
         }
 
-
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
