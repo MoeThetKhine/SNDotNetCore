@@ -12,7 +12,11 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
         public void Run()
         {
-            Read();
+             Read();
+            // Edit(2);
+            // Edit(22);
+            // Create("Title created", "Author created", "Content created");
+           // Update(14,"Title updated", "Author updated", "Content updated");
         }
         private void Read()
         {
@@ -42,8 +46,44 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
             Console.WriteLine(item.BlogTitle);
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
+            Console.WriteLine("____________________");
                 
 
+        }
+
+        private void Create(string title,string author,string content)
+        {
+            var item = new BlogModel
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content
+            };
+            db.Blogs.Add(item);
+            int result = db.SaveChanges();
+
+            string message = result > 0 ? "Creating Successful" : "Creating Fail";
+            Console.WriteLine(message);
+        }
+
+        private void Update(int id ,string title,string author,string content)
+        {
+            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id); // id exists or not
+
+            if(item is null)
+            {
+                Console.WriteLine("No Data Found");
+                return;
+            }
+            item.BlogTitle = title; 
+            item.BlogAuthor = author;
+            item.BlogContent = content;
+
+            int result = db.SaveChanges();
+
+            string message = result > 0 ? "Updating Successful" : "Updating Fail";
+            Console.WriteLine(message);
+             
         }
 
     }
