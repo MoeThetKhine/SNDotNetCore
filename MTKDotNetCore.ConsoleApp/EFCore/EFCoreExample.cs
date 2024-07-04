@@ -106,7 +106,6 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
 
         #region Delete
-
         private void Delete(int id)
         {
 
