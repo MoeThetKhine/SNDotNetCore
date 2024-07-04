@@ -60,7 +60,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             return Ok(message);
 
 
-
         }
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
