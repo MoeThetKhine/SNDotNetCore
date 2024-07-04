@@ -21,6 +21,17 @@ namespace MTKDotNetCore.RestApi.Controllers
             var lst = _context.Blogs.ToList();
             return Ok(lst);
         }
+        [HttpGet("{id}")]
+        public IActionResult Edit(int id)
+        {
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            return Ok(item);
+        }
         
+
     }
 }
