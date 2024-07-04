@@ -39,7 +39,23 @@ namespace MTKDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Creating Successful" : "Creating Fail";
             return Ok(message);
         }
-        
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, BlogModel blog)
+        {
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            item.BlogTitle = blog.BlogTitle;
+            item.BlogAuthor = blog.BlogAuthor;
+            item.BlogContent = blog.BlogContent;
 
+            var result = _context.SaveChanges();
+            string message = result > 0 ? "Updating Successful" : "Updating Fail";
+            return Ok(message);
+
+        }
+        
     }
 }
