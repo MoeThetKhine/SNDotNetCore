@@ -72,7 +72,6 @@ namespace MTKDotNetCore.RestApi.Controllers
         }
         #endregion
 
-
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
         {
