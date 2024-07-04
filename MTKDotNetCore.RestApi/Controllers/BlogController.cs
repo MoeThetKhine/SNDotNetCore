@@ -58,7 +58,6 @@ namespace MTKDotNetCore.RestApi.Controllers
             var result = _context.SaveChanges();
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
-
         }
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
