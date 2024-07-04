@@ -82,18 +82,18 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
         }
         #endregion
 
+        #region Update
 
-
-        private void Update(int id ,string title,string author,string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id); // id exists or not
 
-            if(item is null)
+            if (item is null)
             {
                 Console.WriteLine("No Data Found");
                 return;
             }
-            item.BlogTitle = title; 
+            item.BlogTitle = title;
             item.BlogAuthor = author;
             item.BlogContent = content;
 
@@ -101,8 +101,13 @@ namespace MTKDotNetCore.ConsoleApp.EFCore
 
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             Console.WriteLine(message);
-             
+
         }
+
+
+        #endregion
+
+
 
         private void Delete(int id)
         {
