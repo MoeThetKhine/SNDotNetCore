@@ -9,6 +9,6 @@ namespace MTKDotNetCore.DapperRestApi.Database
         {
             optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
         }
-        public DbSet<BlogModel> Blog { get; set; }
+        public DbSet<BlogModel> Blogs { get; set; }
     }
 }
