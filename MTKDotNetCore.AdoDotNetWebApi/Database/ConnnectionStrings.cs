@@ -12,6 +12,6 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Database
                 IntegratedSecurity = true,
                 TrustServerCertificate = true,
             };
-        }
+        
     }
 }
