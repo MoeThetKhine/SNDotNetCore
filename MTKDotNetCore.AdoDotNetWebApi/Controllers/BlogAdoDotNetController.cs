@@ -48,6 +48,37 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
             return Ok(lst);
 
         }
+
+        [HttpGet("{id}")]
+        public IActionResult EditBlog(int id)
+        {
+            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            SqlConnection connection = new SqlConnection(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogId", id);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sqlDataAdapter.Fill(dt);
+            connection.Close();
+
+            if(dt.Rows.Count > 0)
+            {
+                return NotFound("No Data Found");
+            }
+            DataRow dr = dt.Rows[0];
+            var item = new BlogModel
+            {
+                BlogId = Convert.ToInt32(dr["BlogId"]),
+                BlogTitle = Convert.ToString(dr["BlogTitle"]),
+                BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
+                BlogContent = Convert.ToString(dr["BlogContent"]),
+                IsActive = Convert.ToBoolean(dr["IsActive"])
+            };
+            return Ok(dt);
+            
+
+        }
            
     }
 }
