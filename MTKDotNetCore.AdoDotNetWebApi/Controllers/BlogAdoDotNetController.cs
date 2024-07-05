@@ -46,8 +46,8 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
 
             }).ToList();
             return Ok(lst);
-
         }
+
 
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
@@ -62,11 +62,12 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
             sqlDataAdapter.Fill(dt);
             connection.Close();
 
-            if(dt.Rows.Count > 0)
-            {
-                return NotFound("No Data Found");
-            }
-            DataRow dr = dt.Rows[0];
+            if (dt.Rows.Count == 0)
+                    {
+                        return NotFound("No Data Found");
+                    }
+                    DataRow dr = dt.Rows[0];
+
             var item = new BlogModel
             {
                 BlogId = Convert.ToInt32(dr["BlogId"]),
@@ -74,11 +75,10 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
                 BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                 BlogContent = Convert.ToString(dr["BlogContent"]),
                 IsActive = Convert.ToBoolean(dr["IsActive"])
-            };
-            return Ok(dt);
-            
 
+            };
+            return Ok(item);
         }
-           
+
     }
 }
