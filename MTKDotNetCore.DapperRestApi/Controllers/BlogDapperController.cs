@@ -76,7 +76,12 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             {
                 return NotFound("No Data Found");
             }
-            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            string query = @"Update[dbo].[Tbl_Blog]
+            SET [BlogTitle] = @BlogTitle
+            ,[BlogAuthor]=@BlogAuthor
+            ,[BlogContent]=@BlogContent
+WHERE BlogId = @BlogId";
+
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
