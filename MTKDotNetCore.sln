@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.ConsoleApp", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.RestApi", "MTKDotNetCore.RestApi", "{C6B923C8-7D20-4841-9D05-46FDDBDB5C53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.EFCoreRestApi", "MTKDotNetCore.RestApi\MTKDotNetCore.EFCoreRestApi.csproj", "{F3799F74-7A7E-477D-BC36-E2C09267AD00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.EFCoreRestApi", "MTKDotNetCore.RestApi\MTKDotNetCore.EFCoreRestApi.csproj", "{F3799F74-7A7E-477D-BC36-E2C09267AD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.DapperRestApi", "MTKDotNetCore.DapperRestApi\MTKDotNetCore.DapperRestApi.csproj", "{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.DapperRestApi", "MTKDotNetCore.DapperRestApi\MTKDotNetCore.DapperRestApi.csproj", "{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.AdoDotNetWebApi", "MTKDotNetCore.AdoDotNetWebApi\MTKDotNetCore.AdoDotNetWebApi.csproj", "{724C444E-0B48-4844-9EC7-7A024DD54BAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{638EA946-59F3-422E-9E41-6F8C7CE6871B} = {FCE8078A-CDAC-4EA1-B56C-C6B2E1562E4A}
 		{F3799F74-7A7E-477D-BC36-E2C09267AD00} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 		{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
+		{724C444E-0B48-4844-9EC7-7A024DD54BAD} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B849E2-64E3-4EF3-8C63-B3779F504E7B}
