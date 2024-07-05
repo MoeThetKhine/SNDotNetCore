@@ -53,37 +53,73 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string query = @"Insert into [dbo].[Tbl_Blog]
             ([BlogTitle]
             ,[BlogAuthor]
-            ,[BlogContent])
+            ,[BlogContent]
+            ,[IsActive])
             VALUES(@BlogTitle
             ,@BlogAuthor
-            ,@BlogContent)";
+            ,@BlogContent
+            ,@IsActive)";
 
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
 
             int result = db.Execute(query,blog);
-            string message = result > 0 ? "Saving Successful" : "Saving Fail";
+            string message = result > 0 ? "Creating Successful" : "Creating Fail";
             return Ok(message);
         }
         #endregion
+        
+        //        [HttpPut("{id}")]
+        //        public IActionResult UpdateBlog(int id,BlogModel blog)
+        //        {
+        //            var item = FindById(id);
+        //            if(item is null)
+        //            {
+        //                return NotFound("No Data Found");
+        //            }
+        //            string query = @"Update[dbo].[Tbl_Blog]
+        //            SET [BlogTitle] = @BlogTitle
+        //            ,[BlogAuthor]=@BlogAuthor
+        //            ,[BlogContent]=@BlogContent
+        //            ,[IsActive]=@IsActive
+        //WHERE blogid = @BlogId";
+
+        //            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+        //            int result = db.Execute(query, blog);
+        //            string message = result > 0 ? "Updating Successful" : "Updating Fail";
+        //            return Ok(message);
+        //        }
+
 
         #region UpdateBlog
-
         [HttpPut("{id}")]
-        public IActionResult UpdateBlog(int id,BlogModel blog)
+        public IActionResult UpdateBlogs(int id, BlogModel blog)
         {
             var item = FindById(id);
-            if(item is null)
+            if (item is null)
             {
                 return NotFound("No Data Found");
             }
-            string query = @"Update[dbo].[Tbl_Blog]
-            SET [BlogTitle] = @BlogTitle
-            ,[BlogAuthor]=@BlogAuthor
-            ,[BlogContent]=@BlogContent
-WHERE BlogId = @BlogId";
+
+            string query = @"
+        UPDATE [dbo].[Tbl_Blog]
+        SET [BlogTitle] = @BlogTitle,
+            [BlogAuthor] = @BlogAuthor,
+            [BlogContent] = @BlogContent,
+            [IsActive] = @IsActive
+        WHERE blogid = @BlogId";
+
+
 
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, blog);
+            int result = db.Execute(query, new
+            {
+                BlogTitle = blog.BlogTitle,
+                BlogAuthor = blog.BlogAuthor,
+                BlogContent = blog.BlogContent,
+                IsActive = blog.IsActive,
+                BlogId = id
+            });
+
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
@@ -102,23 +138,23 @@ WHERE BlogId = @BlogId";
             string conditions = string.Empty;
             if(!string.IsNullOrEmpty(blog.BlogTitle))
             {
-                conditions += "[BlogTitle] = @BlogTitle,";
+                conditions += "[BlogTitle] = @BlogTitle, ";
             }
             if (!string.IsNullOrEmpty(blog.BlogAuthor))
             {
-                conditions += "[BlogAuthor] = @BlogAuthor,";
+                conditions += "[BlogAuthor] = @BlogAuthor, ";
             }
             if (!string.IsNullOrEmpty(blog.BlogContent))
             {
-                conditions += "[BlogContent] = @BlogContent,";
+                conditions += "[BlogContent] = @BlogContent, ";
             }
             if(conditions.Length == 0) 
             {
                 return NotFound("No data to update");
             }
-
             conditions = conditions.Substring(0,conditions.Length - 2);
             blog.BlogId = id;
+
             string query = $@"Update[dbo].[Tbl_Blog] SET {conditions} WHERE BlogId = @BlogId";
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);

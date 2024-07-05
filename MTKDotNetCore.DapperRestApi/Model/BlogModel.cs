@@ -10,7 +10,7 @@ namespace MTKDotNetCore.DapperRestApi.Model
     [Table("Tbl_Blog")]
     public class BlogModel
     {
-       // [Key]
+        [Key]
         public long BlogId { get; set; }
         public string BlogTitle { get; set; }
         public string BlogAuthor { get; set; }
