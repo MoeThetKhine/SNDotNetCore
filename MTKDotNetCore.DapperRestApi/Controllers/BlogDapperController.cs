@@ -108,8 +108,6 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             [IsActive] = @IsActive
         WHERE blogid = @BlogId";
 
-
-
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, new
             {
