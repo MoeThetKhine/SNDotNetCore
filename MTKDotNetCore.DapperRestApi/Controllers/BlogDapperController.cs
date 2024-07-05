@@ -123,6 +123,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
 
         #endregion
 
+        #region DeleteBlog
+
         [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
         {
@@ -137,6 +139,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             return Ok(message);
         }
+
+        #endregion
 
         private BlogModel? FindById(int id)
         {
