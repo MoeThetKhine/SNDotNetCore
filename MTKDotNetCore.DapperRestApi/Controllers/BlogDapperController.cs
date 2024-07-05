@@ -24,7 +24,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
         #endregion
 
         #region EditBlog
-
+        
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
         {
@@ -59,9 +59,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             int result = db.Execute(query,blog);
             string message = result > 0 ? "Saving Successful" : "Saving Fail";
             return Ok(message);
-
         }
-
         #endregion
 
         #region UpdateBlog
