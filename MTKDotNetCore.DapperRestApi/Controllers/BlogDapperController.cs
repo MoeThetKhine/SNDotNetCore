@@ -20,5 +20,17 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
             return Ok(lst);
         }
+        [HttpGet("{id}")]
+        public IActionResult EditBlog(int id)
+        {
+            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            var item = db.Query<BlogModel>(query,new BlogModel {BlogId = id}).FirstOrDefault();
+            if (item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            return Ok(item);
+        }
     }
 }
