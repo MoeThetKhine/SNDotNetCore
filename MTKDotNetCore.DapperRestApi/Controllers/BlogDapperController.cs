@@ -23,14 +23,60 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
         {
-            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
-            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogModel>(query,new BlogModel {BlogId = id}).FirstOrDefault();
+            //string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            //using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            //var item = db.Query<BlogModel>(query,new BlogModel {BlogId = id}).FirstOrDefault();
+
+            var item = FindById(id);
             if (item is null)
             {
                 return NotFound("No Data Found");
             }
             return Ok(item);
         }
+
+        [HttpPost]
+        public IActionResult CreateBlog(BlogModel blog) 
+        {
+            string query = @"Insert into [dbo].[Tbl_Blog]
+            ([BlogTitle]
+            ,[BlogAuthor]
+            ,[BlogContent])
+            VALUES(@BlogTitle
+            ,@BlogAuthor
+            ,@BlogContent)";
+
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+
+            int result = db.Execute(query,blog);
+            string message = result > 0 ? "Saving Successful" : "Saving Fail";
+            return Ok(message);
+
+
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBlog(int id,BlogModel blog)
+        {
+            var item = FindById(id);
+            if(item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, blog);
+            string message = result > 0 ? "Updating Successful" : "Updating Fail";
+            return Ok(message);
+        }
+        private BlogModel? FindById(int id)
+        {
+            string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
+            return item;
+        }
     }
+
+   
 }
