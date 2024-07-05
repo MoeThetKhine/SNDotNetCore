@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MTKDotNetCore.AdoDotNetWebApi.Model;
-using MTKDotNetCore.EFCoreRestApi.Database;
+using MTKDotNetCore.AdoDotNetWebApi.Database;
 
 namespace MTKDotNetCore.AdoDotNetWebApi.Database
 {
@@ -8,8 +8,9 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Database
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+           optionsBuilder.UseSqlServer(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
         }
         public DbSet<BlogModel> Blogs { get; set; }
     }
 }
+ 

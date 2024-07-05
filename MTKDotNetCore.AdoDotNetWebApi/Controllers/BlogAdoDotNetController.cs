@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MTKDotNetCore.AdoDotNetWebApi.Model;
-using MTKDotNetCore.EFCoreRestApi.Database;
 using System.Data;
 using System.Data.SqlClient;
+using MTKDotNetCore.AdoDotNetWebApi.Database;
 
 namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
 {
@@ -16,7 +16,7 @@ namespace MTKDotNetCore.AdoDotNetWebApi.Controllers
         public IActionResult GetBlogs()
         {
             string query = "select * from Tbl_Blog";
-            SqlConnection connection = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
