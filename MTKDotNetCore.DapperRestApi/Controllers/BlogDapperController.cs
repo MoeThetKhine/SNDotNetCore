@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 #endregion
 
 
-
 namespace MTKDotNetCore.DapperRestApi.Controllers
 {
     [Route("api/[controller]")]
