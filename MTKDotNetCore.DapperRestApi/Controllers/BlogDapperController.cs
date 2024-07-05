@@ -105,8 +105,21 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             return Ok(message);
 
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBlog(int id)
+        {
+            var item = FindById(id);
+            if (item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            string query = @"Delete from [dbo].[Tbl_Blog] WHERE BlogId = @BlogId";
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, new BlogModel { BlogId = id });
+            string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
+            return Ok(message);
+        }
 
-        
         private BlogModel? FindById(int id)
         {
             string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
