@@ -64,6 +64,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
 
         #endregion
 
+        #region UpdateBlog
+
         [HttpPut("{id}")]
         public IActionResult UpdateBlog(int id,BlogModel blog)
         {
@@ -78,6 +80,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+        #endregion
 
         [HttpPatch("{id}")]
         public IActionResult PatchBlog(int id,BlogModel blog)
