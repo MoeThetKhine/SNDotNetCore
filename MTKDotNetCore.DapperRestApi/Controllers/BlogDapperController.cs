@@ -134,7 +134,6 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             return Ok(message);
         }
-
         #endregion
 
         #region FindById
