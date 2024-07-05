@@ -142,6 +142,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
 
         #endregion
 
+        #region FindById
+
         private BlogModel? FindById(int id)
         {
             string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
@@ -149,7 +151,9 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
             return item;
         }
+
+        #endregion
     }
 
-   
+
 }
