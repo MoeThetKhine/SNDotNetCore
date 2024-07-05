@@ -23,6 +23,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
         }
         #endregion
 
+        #region EditBlog
+
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
         {
@@ -37,6 +39,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             }
             return Ok(item);
         }
+        #endregion
 
         [HttpPost]
         public IActionResult CreateBlog(BlogModel blog) 
