@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿#region using
+
+using Microsoft.EntityFrameworkCore;
 using MTKDotNetCore.DapperRestApi.Model;
 
+#endregion
 namespace MTKDotNetCore.DapperRestApi.Database
 {
     internal class AppDbContext : DbContext
