@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 
 #endregion
 
-
 namespace MTKDotNetCore.DapperRestApi.Model
 {
     [Table("Tbl_Blog")]
