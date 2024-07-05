@@ -103,22 +103,19 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             {
                 conditions += "[BlogContent] = @BlogContent";
             }
-
             if(conditions.Length == 0) 
             {
                 return NotFound("No data to update");
             }
+
             conditions = conditions.Substring(0,conditions.Length - 2);
             blog.BlogId = id;
-
             string query = $@"Update[dbo].[Tbl_Blog] SET {conditions} WHERE BlogId = @BlogId";
             using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
-
         }
-
         #endregion
 
         #region DeleteBlog
