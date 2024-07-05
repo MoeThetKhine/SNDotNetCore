@@ -1,5 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿#region using
+
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+
+#endregion
+
+
 
 namespace MTKDotNetCore.DapperRestApi.Model
 {
