@@ -52,7 +52,6 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string message = result > 0 ? "Saving Successful" : "Saving Fail";
             return Ok(message);
 
-
         }
 
         [HttpPut("{id}")]
@@ -69,6 +68,45 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
+
+        [HttpPatch("{id}")]
+        public IActionResult PatchBlog(int id,BlogModel blog)
+        {
+            var item = FindById(id);
+            if(item is null)
+            {
+                return NotFound("No Data Found");
+            }
+            string conditions = string.Empty;
+            if(!string.IsNullOrEmpty(blog.BlogTitle))
+            {
+                conditions += "[BlogTitle] = @BlogTitle";
+            }
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            {
+                conditions += "[BlogAuthor] = @BlogAuthor";
+            }
+            if (!string.IsNullOrEmpty(blog.BlogContent))
+            {
+                conditions += "[BlogContent] = @BlogContent";
+            }
+
+            if(conditions.Length == 0) 
+            {
+                return NotFound("No data to update");
+            }
+            conditions = conditions.Substring(0,conditions.Length - 2);
+            blog.BlogId = id;
+
+            string query = $@"Update[dbo].[Tbl_Blog] SET {conditions} WHERE BlogId = @BlogId";
+            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, blog);
+            string message = result > 0 ? "Updating Successful" : "Updating Fail";
+            return Ok(message);
+
+        }
+
+        
         private BlogModel? FindById(int id)
         {
             string query = "select * from Tbl_Blog WHERE BlogId = @BlogId";
