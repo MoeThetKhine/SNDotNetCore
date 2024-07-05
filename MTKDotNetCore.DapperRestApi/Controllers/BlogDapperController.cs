@@ -12,6 +12,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
     [ApiController]
     public class BlogDapperController : ControllerBase
     {
+        #region GetBlogs
         [HttpGet]
         public IActionResult GetBlogs()
         {
@@ -20,6 +21,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
             return Ok(lst);
         }
+        #endregion
+
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
         {
