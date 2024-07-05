@@ -82,6 +82,8 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
         }
         #endregion
 
+        #region PatchBlog
+
         [HttpPatch("{id}")]
         public IActionResult PatchBlog(int id,BlogModel blog)
         {
@@ -118,6 +120,9 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             return Ok(message);
 
         }
+
+        #endregion
+
         [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
         {
