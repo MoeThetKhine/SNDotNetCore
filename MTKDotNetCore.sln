@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.EFCoreRestApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.DapperRestApi", "MTKDotNetCore.DapperRestApi\MTKDotNetCore.DapperRestApi.csproj", "{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.AdoDotNetWebApi", "MTKDotNetCore.AdoDotNetWebApi\MTKDotNetCore.AdoDotNetWebApi.csproj", "{724C444E-0B48-4844-9EC7-7A024DD54BAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.AdoDotNetWebApi", "MTKDotNetCore.AdoDotNetWebApi\MTKDotNetCore.AdoDotNetWebApi.csproj", "{724C444E-0B48-4844-9EC7-7A024DD54BAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.CustomServices", "MTKDotNetCore.CustomServices", "{46E82F06-69BE-449D-A47E-F12EAE7A57C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.DapperCustomService", "MTKDotNetCore.DapperCustomService\MTKDotNetCore.DapperCustomService.csproj", "{A10D5983-505E-4C2F-91BE-2D4E579D92C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724C444E-0B48-4844-9EC7-7A024DD54BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10D5983-505E-4C2F-91BE-2D4E579D92C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10D5983-505E-4C2F-91BE-2D4E579D92C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10D5983-505E-4C2F-91BE-2D4E579D92C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10D5983-505E-4C2F-91BE-2D4E579D92C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{F3799F74-7A7E-477D-BC36-E2C09267AD00} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 		{73733BB9-4CC1-47C7-8FB3-21E4D09A3B14} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 		{724C444E-0B48-4844-9EC7-7A024DD54BAD} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
+		{A10D5983-505E-4C2F-91BE-2D4E579D92C5} = {46E82F06-69BE-449D-A47E-F12EAE7A57C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B849E2-64E3-4EF3-8C63-B3779F504E7B}
