@@ -142,7 +142,75 @@ public class BlogAdoDotNetController : ControllerBase
         string message = result > 0 ? "Saving Successful" : "Saving Fail";
         return Ok(message);
     }
-    
+   
+
+
+
+    [HttpPatch("{id}")]
+    public IActionResult PatchBlog(int id, BlogModel blog)
+    {
+        SqlConnection connection = new SqlConnection(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query = @"SELECT [BlogId]
+                          ,[BlogTitle]
+                          ,[BlogAuthor]
+                          ,[BlogContent]
+                      FROM Tbl_Blog where BlogId = @BlogId";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        adapter.Fill(dt);
+        connection.Close();
+
+        if (dt.Rows.Count == 0)
+        {
+            return NotFound("Blog not found.");
+        }
+        string conditions = string.Empty;
+
+        if (!string.IsNullOrEmpty(blog.BlogTitle))
+        {
+            conditions += $" [BlogTitle] = @BlogTitle, ";
+        }
+        if (!string.IsNullOrEmpty(blog.BlogAuthor))
+        {
+            conditions += $" [BlogAuthor] = @BlogAuthor, ";
+        }
+        if (!string.IsNullOrEmpty(blog.BlogContent))
+        {
+            conditions += $" [BlogContent] = @BlogContent, ";
+        }
+        if (conditions.Length == 0)
+        {
+            return BadRequest("No Data to Update");
+        }
+        conditions = conditions.Substring(0, conditions.Length - 2);
+
+        connection.Open();
+        string updatequery = $@"Update Tbl_Blog
+                SET{conditions}
+                Where BlogId = @BlogId";
+        SqlCommand cmdupdate = new SqlCommand(updatequery, connection);
+        cmdupdate.Parameters.AddWithValue("@BlogId", id);
+        if (!string.IsNullOrEmpty(blog.BlogTitle))
+        {
+            cmdupdate.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+        }
+        if (!string.IsNullOrEmpty(blog.BlogAuthor))
+        {
+            cmdupdate.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+        }
+        if (!string.IsNullOrEmpty(blog.BlogContent))
+        {
+            cmdupdate.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+        }
+        int result = cmdupdate.ExecuteNonQuery();
+        connection.Close();
+        string messageResult = result > 0 ? "Updating Successfully" : "Updating Fail";
+        return Ok(messageResult);
+    }
 }
 
 
