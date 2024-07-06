@@ -211,6 +211,22 @@ public class BlogAdoDotNetController : ControllerBase
         string messageResult = result > 0 ? "Updating Successfully" : "Updating Fail";
         return Ok(messageResult);
     }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteBlog(int id)
+    {
+        SqlConnection connection = new SqlConnection(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query = @"DELETE from Tbl_Blog WHERE BlogId = @BlogId";
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        int result = cmd.ExecuteNonQuery();
+        connection.Close();
+
+        string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
+        return Ok(message);
+
+    }
 }
 
 
