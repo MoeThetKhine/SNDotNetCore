@@ -67,7 +67,6 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             return Ok(message);
         }
         #endregion
-      
 
 
         #region UpdateBlog
