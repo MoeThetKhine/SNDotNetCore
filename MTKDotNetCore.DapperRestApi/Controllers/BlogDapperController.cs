@@ -68,7 +68,6 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
         }
         #endregion
 
-
         #region UpdateBlog
         [HttpPut("{id}")]
         public IActionResult UpdateBlogs(int id, BlogModel blog)
