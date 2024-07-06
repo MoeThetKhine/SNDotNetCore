@@ -25,7 +25,17 @@ namespace MTKDotNetCore.DapperCustomService.Shared
             using IDbConnection db = new SqlConnection(_connectionSring);
             var result = db.Execute(query,param);
             return result;
+
+
         }
+
+        public M QueryFirstOrDefault<M>(string query,object? param = null)
+        {
+            using IDbConnection db = new SqlConnection(_connectionSring);
+            var item = db.Query<M>(query, param).FirstOrDefault();
+            return item!;
+        }
+
         
     }
 }
