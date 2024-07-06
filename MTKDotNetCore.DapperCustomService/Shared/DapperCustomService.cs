@@ -20,6 +20,12 @@ namespace MTKDotNetCore.DapperCustomService.Shared
 
 
         }
+        public int Execute(string query,object? param = null)
+        {
+            using IDbConnection db = new SqlConnection(_connectionSring);
+            var result = db.Execute(query,param);
+            return result;
+        }
         
     }
 }
