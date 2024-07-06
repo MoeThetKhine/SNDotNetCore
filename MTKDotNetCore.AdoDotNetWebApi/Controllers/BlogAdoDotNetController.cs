@@ -105,6 +105,44 @@ public class BlogAdoDotNetController : ControllerBase
 
     }
 
+    [HttpPut("{id}")]
+    public IActionResult UpdateBlog(int id, BlogModel blog)
+    {
+        SqlConnection connection = new SqlConnection(ConnnectionStrings._sqlConnectionStringBuilder.ConnectionString);
+
+        connection.Open();
+        string check = "select * from Tbl_Blog WHERE BlogId = @BlogId";
+        SqlCommand chk = new SqlCommand(check, connection);
+        chk.Parameters.AddWithValue("@BlogId", id);
+        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(chk);
+        DataTable dt = new DataTable();
+        sqlDataAdapter.Fill(dt);
+        connection.Close();
+
+        if (dt.Rows.Count == 0)
+        {
+            return NotFound("No data found");
+        }
+
+        connection.Open();
+        string query = @"Update[dbo].[Tbl_Blog] 
+            SET[BlogTitle] = @BlogTitle
+            ,[BlogAuthor] = @BlogAuthor
+            ,[BlogContent] = @BlogContent Where BlogId = @BlogId";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+        cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+        cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+
+        int result = cmd.ExecuteNonQuery();
+        connection.Close();
+
+        string message = result > 0 ? "Saving Successful" : "Saving Fail";
+        return Ok(message);
+    }
+    
 }
 
 
