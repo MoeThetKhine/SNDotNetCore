@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.DapperCustomService.Model;
+using MTKDotNetCore.DapperCustomerService.Model;
 
-namespace MTKDotNetCore.DapperCustomService.Database
+namespace MTKDotNetCore.DapperCustomerService.Database
 {
     internal class AppDbContext : DbContext
     {
@@ -9,6 +9,6 @@ namespace MTKDotNetCore.DapperCustomService.Database
         {
             optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
         }
-        public DbSet<BlogModel> Blogs { get; set; }
+        public DbSet<BlogModel> Blogs {  get; set; }    
     }
 }

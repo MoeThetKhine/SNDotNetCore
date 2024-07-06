@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace MTKDotNetCore.DapperCustomService.Model
+namespace MTKDotNetCore.DapperCustomerService.Model
 {
     [Table("Tbl_Blog")]
     public class BlogModel

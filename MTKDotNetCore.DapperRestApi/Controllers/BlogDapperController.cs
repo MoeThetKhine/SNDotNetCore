@@ -67,27 +67,7 @@ namespace MTKDotNetCore.DapperRestApi.Controllers
             return Ok(message);
         }
         #endregion
-        
-        //        [HttpPut("{id}")]
-        //        public IActionResult UpdateBlog(int id,BlogModel blog)
-        //        {
-        //            var item = FindById(id);
-        //            if(item is null)
-        //            {
-        //                return NotFound("No Data Found");
-        //            }
-        //            string query = @"Update[dbo].[Tbl_Blog]
-        //            SET [BlogTitle] = @BlogTitle
-        //            ,[BlogAuthor]=@BlogAuthor
-        //            ,[BlogContent]=@BlogContent
-        //            ,[IsActive]=@IsActive
-        //WHERE blogid = @BlogId";
-
-        //            using IDbConnection db = new SqlConnection(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
-        //            int result = db.Execute(query, blog);
-        //            string message = result > 0 ? "Updating Successful" : "Updating Fail";
-        //            return Ok(message);
-        //        }
+      
 
 
         #region UpdateBlog
