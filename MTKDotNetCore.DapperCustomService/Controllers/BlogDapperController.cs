@@ -1,34 +1,33 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.DapperCustomerService.Model;
-using MTKDotNetCore.DapperCustomerService.Shared;
+using MTKDotNetCore.DapperCustomService.Model;
+using MTKDotNetCore.DapperCustomService.Shares;
 
-namespace MTKDotNetCore.DapperCustomerService.Controllers
+namespace MTKDotNetCore.DapperCustomService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BlogDapperController : ControllerBase
     {
-        private readonly DapperCustomService _dapperCustomService;
+        
+        private readonly DapperService _dapperService;
 
-        public BlogDapperController(DapperCustomService dapperCustomService)
+        public BlogDapperController(DapperService dapperCustomService)
         {
-            _dapperCustomService = dapperCustomService;
+            _dapperService = dapperCustomService;
         }
-       
         [HttpGet]
         public IActionResult GetBlogs()
         {
             string query = "select * from Tbl_Blog";
-            var lst = _dapperCustomService.Query<BlogModel>(query);
+            var lst = _dapperService.Query<BlogModel>(query);
 
             return Ok(lst);
         }
-
         private BlogModel? FindById(int id)
         {
             string query = "select * from Tbl_Blog where BogId = @BlogId";
-            var item = _dapperCustomService.QueryFirstOrDefault<BlogModel>(query,new BlogModel { BlogId = id});
+            var item = _dapperService.QueryFirstOrDefault<BlogModel>(query, new BlogModel { BlogId = id });
             return item;
         }
 
@@ -36,33 +35,36 @@ namespace MTKDotNetCore.DapperCustomerService.Controllers
         public IActionResult EditBlog(int id)
         {
             var item = FindById(id);
-            if(item is null)
+            if (item is null)
             {
                 return NotFound("No Data Found");
             }
             return Ok(item);
         }
 
+
+
         [HttpPost]
         public IActionResult CreateBlog(BlogModel blog)
         {
             string query = @"Insert into [dbo].[Tbl_Blog]
-            ([BlogTitle]
-            ,[BlogAuthor]
-            ,[BlogContent]
-            ,[IsActive])
-            VALUES(@BlogTitle
-            ,@BlogAuthor
-            ,@BlogContent
-            ,@IsActive)";
-            int result = _dapperCustomService.Execute(query,blog);
+        ([BlogTitle]
+        ,[BlogAuthor]
+        ,[BlogContent]
+        ,[IsActive])
+        VALUES(@BlogTitle
+        ,@BlogAuthor
+        ,@BlogContent
+        ,@IsActive)";
+            int result = _dapperService.Execute(query, blog);
             string message = result > 0 ? "Saving Successful" : "Saving Fail";
             return Ok(message);
         }
 
 
+
         [HttpPut("{id}")]
-        public IActionResult UpdateBlog(int id,BlogModel blog)
+        public IActionResult UpdateBlog(int id, BlogModel blog)
         {
             var item = FindById(id);
             if (item is null)
@@ -70,13 +72,13 @@ namespace MTKDotNetCore.DapperCustomerService.Controllers
                 return NotFound("No Data Found");
             }
             string query = @"
-        UPDATE [dbo].[Tbl_Blog]
-        SET [BlogTitle] = @BlogTitle,
-            [BlogAuthor] = @BlogAuthor,
-            [BlogContent] = @BlogContent,
-            [IsActive] = @IsActive
-        WHERE blogid = @BlogId";
-            int result = _dapperCustomService.Execute(query, blog);
+    UPDATE [dbo].[Tbl_Blog]
+    SET [BlogTitle] = @BlogTitle,
+        [BlogAuthor] = @BlogAuthor,
+        [BlogContent] = @BlogContent,
+        [IsActive] = @IsActive
+    WHERE blogid = @BlogId";
+            int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             return Ok(message);
@@ -87,12 +89,12 @@ namespace MTKDotNetCore.DapperCustomerService.Controllers
         public IActionResult DeleteBlog(int id)
         {
             var item = FindById(id);
-            if(item is null)
+            if (item is null)
             {
                 return NotFound("No Data Found");
             }
             string query = @"Delete from [dbo].[Tbl_Blog] WHERE BlogId = @BlogId";
-            int result = _dapperCustomService.Execute(query, new BlogModel { BlogId = id });
+            int result = _dapperService.Execute(query, new BlogModel { BlogId = id });
             string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
             return Ok(message);
 
@@ -101,7 +103,7 @@ namespace MTKDotNetCore.DapperCustomerService.Controllers
 
 
         [HttpPatch("{id}")]
-        public IActionResult PatchBlog(int id,BlogModel blog)
+        public IActionResult PatchBlog(int id, BlogModel blog)
         {
             var item = FindById(id);
             if (item is null)
@@ -129,9 +131,13 @@ namespace MTKDotNetCore.DapperCustomerService.Controllers
             blog.BlogId = id;
 
             string query = $@"Update[dbo].[Tbl_Blog] SET {conditions} WHERE BlogId = @BlogId";
-            int result = _dapperCustomService.Execute(query, blog);
+            int result = _dapperService.Execute(query, blog);
             string message = result > 0 ? "Updating Successful" : "Updating Fail";
             return Ok(message);
         }
     }
+
+
+
+}
 }

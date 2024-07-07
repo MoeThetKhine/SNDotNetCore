@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace MTKDotNetCore.DapperCustomerService.Model
+namespace MTKDotNetCore.DapperCustomService.Model
 {
     [Table("Tbl_Blog")]
     public class BlogModel
@@ -13,4 +13,5 @@ namespace MTKDotNetCore.DapperCustomerService.Model
         public string BlogContent { get; set; }
         public bool IsActive { get; set; }
     }
+
 }

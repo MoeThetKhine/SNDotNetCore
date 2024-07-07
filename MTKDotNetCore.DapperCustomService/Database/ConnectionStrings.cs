@@ -1,9 +1,10 @@
 ﻿using System.Data.SqlClient;
 
-namespace MTKDotNetCore.DapperCustomerService.Database
+namespace MTKDotNetCore.DapperCustomService.Database
 {
     public class ConnectionStrings
     {
+
         public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = "localhost", // or "(local)" or your server name
@@ -11,5 +12,7 @@ namespace MTKDotNetCore.DapperCustomerService.Database
             IntegratedSecurity = true,
             TrustServerCertificate = true,
         };
+
+
     }
 }
