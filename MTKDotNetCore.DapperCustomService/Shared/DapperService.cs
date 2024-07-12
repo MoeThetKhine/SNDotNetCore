@@ -1,6 +1,6 @@
-﻿using Dapper;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace MTKDotNetCore.DapperCustomService.Shared
 {
@@ -19,12 +19,14 @@ namespace MTKDotNetCore.DapperCustomService.Shared
             var lst = db.Query<M>(query, param).ToList();
             return lst;
         }
+
         public int Execute(string query, object? param = null)
         {
             using IDbConnection db = new SqlConnection(_connectionString);
             var result = db.Execute(query, param);
             return result;
         }
+
         public M QueryFirstOrDefault<M>(string query, object? param = null)
         {
             using IDbConnection db = new SqlConnection(_connectionString);
@@ -32,5 +34,36 @@ namespace MTKDotNetCore.DapperCustomService.Shared
             return item!;
         }
 
+        public async Task<List<T>> QueryAsync<T>(
+            string query,
+            object? parameters = null,
+            CommandType commandType = CommandType.Text
+        )
+        {
+            using IDbConnection db = new SqlConnection(_connectionString);
+            var lst = await db.QueryAsync<T>(query, parameters, commandType: commandType);
+            return lst.ToList();
+        }
+
+        public async Task<T> QueryFirstOrDefaultAsync<T>(
+            string query,
+            object? parameters = null,
+            CommandType commandType = CommandType.Text
+        )
+        {
+            using IDbConnection db = new SqlConnection(_connectionString);
+            var item = await db.QueryFirstOrDefaultAsync<T>(
+                query,
+                parameters,
+                commandType: commandType
+            );
+            return item!;
+        }
+
+        public async Task<int> ExecuteAsync(string query, object parameters)
+        {
+            using IDbConnection db = new SqlConnection(_connectionString);
+            return await db.ExecuteAsync(query, parameters);
+        }
     }
 }
