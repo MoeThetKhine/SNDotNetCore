@@ -15,21 +15,21 @@ namespace MTKDotNetCore.DapperCustomService.Shared
 
         public List<M> Query<M>(string query, object? param = null)
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             var lst = db.Query<M>(query, param).ToList();
             return lst;
         }
 
         public int Execute(string query, object? param = null)
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             var result = db.Execute(query, param);
             return result;
         }
 
         public M QueryFirstOrDefault<M>(string query, object? param = null)
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             var item = db.Query<M>(query, param).FirstOrDefault();
             return item!;
         }
