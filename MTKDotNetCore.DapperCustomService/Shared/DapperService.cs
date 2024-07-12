@@ -40,7 +40,7 @@ namespace MTKDotNetCore.DapperCustomService.Shared
             CommandType commandType = CommandType.Text
         )
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             var lst = await db.QueryAsync<T>(query, parameters, commandType: commandType);
             return lst.ToList();
         }
@@ -51,7 +51,7 @@ namespace MTKDotNetCore.DapperCustomService.Shared
             CommandType commandType = CommandType.Text
         )
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             var item = await db.QueryFirstOrDefaultAsync<T>(
                 query,
                 parameters,
@@ -62,8 +62,10 @@ namespace MTKDotNetCore.DapperCustomService.Shared
 
         public async Task<int> ExecuteAsync(string query, object parameters)
         {
-            using IDbConnection db = new SqlConnection(_connectionString);
+            using IDbConnection db = GetConnection();
             return await db.ExecuteAsync(query, parameters);
         }
+
+        private SqlConnection GetConnection() => new(_connectionString);
     }
 }
