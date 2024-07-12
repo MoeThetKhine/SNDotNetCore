@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MTKDotNetCore.AdoDotNetCustomService.Model;
-using MTKDotNetCore.AdoDotNetCustomService.Shares;
+using MTKDotNetCore.AdoDotNetCustomService.Shared;
 using System.Data;
 using System.Reflection.Metadata;
-using static MTKDotNetCore.AdoDotNetCustomService.Shares.AdoDotNetService;
+using static MTKDotNetCore.AdoDotNetCustomService.Shared.AdoDotNetService;
 
 namespace MTKDotNetCore.AdoDotNetCustomService.Controllers
 {
@@ -27,19 +27,18 @@ namespace MTKDotNetCore.AdoDotNetCustomService.Controllers
             return Ok(lst);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             string query = "select * from Tbl_Blog where BlogId = @BlogId";
-            var item = _adoDotNetCustomService.FirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId", id));
+            var item = _adoDotNetCustomService.FirstOrDefault<BlogModel>(query,new AdoDotNetParameter("@BlogId",id));
 
-            if (item is null)
+            if(item is null)
             {
                 return NotFound("No Data Found");
             }
             return Ok(item);
         }
-        
         [HttpPost]
         public IActionResult CreateBlog(BlogModel blog)
         {
@@ -55,13 +54,13 @@ namespace MTKDotNetCore.AdoDotNetCustomService.Controllers
             int result = _adoDotNetCustomService.Execute(query,
                 new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                 new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
-                new AdoDotNetParameter("@BlogContent", blog.BlogContent)
+                new AdoDotNetParameter("@BlogContent",blog.BlogContent)
                 );
             string message = result > 0 ? "Saving Successful" : "Saving Fail";
             return Ok(message);
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateBlog(int id, BlogModel blog)
+        public IActionResult UpdateBlog(int id,BlogModel blog)
         {
             string query = @"UPDATE [dbo].[Tbl_Blog]
                         SET [BlogTitle] = @BlogTitle,
@@ -79,8 +78,8 @@ namespace MTKDotNetCore.AdoDotNetCustomService.Controllers
             string message = result > 0 ? "Update Successful." : "Update Failed.";
             return Ok(message);
         }
-
         [HttpDelete("{id}")]
+        
         public IActionResult DeleteBlog(int id)
         {
             string query = @"Delete from Tbl_Blog WHERE BlogId = @BlogId";
