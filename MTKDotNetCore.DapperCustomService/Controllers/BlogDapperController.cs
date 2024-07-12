@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MTKDotNetCore.DapperCustomService.Model;
-using MTKDotNetCore.DapperCustomService.Shares;
+using MTKDotNetCore.DapperCustomService.Shared;
 
 namespace MTKDotNetCore.DapperCustomService.Controllers
 {
