@@ -17,9 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.AdoDotNetWebA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.CustomServices", "MTKDotNetCore.CustomServices", "{80EFF9B1-0646-4629-B5D7-50460789AE37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.DapperCustomService", "MTKDotNetCore.DapperCustomService\MTKDotNetCore.DapperCustomService.csproj", "{B8C96ECB-D19C-4B7D-84D3-03CAF9E74A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.DapperCustomService", "MTKDotNetCore.DapperCustomService\MTKDotNetCore.DapperCustomService.csproj", "{B8C96ECB-D19C-4B7D-84D3-03CAF9E74A8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.AdoDotNetCustomService", "MTKDotNetCore.AdoDotNetCustomService\MTKDotNetCore.AdoDotNetCustomService.csproj", "{929F719B-30B1-40D0-BB72-BF54637E4757}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTKDotNetCore.AdoDotNetCustomService", "MTKDotNetCore.AdoDotNetCustomService\MTKDotNetCore.AdoDotNetCustomService.csproj", "{929F719B-30B1-40D0-BB72-BF54637E4757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTKDotNetCore.NLayer", "MTKDotNetCore.NLayer", "{21ACC5CC-36F8-4670-8F57-14E14EDE8C3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTKDotNetCore.NLayerApi", "MTKDotNetCore.NLayerApi\MTKDotNetCore.NLayerApi.csproj", "{0DAFD66E-DB05-4D63-9591-05BD1491DC5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{929F719B-30B1-40D0-BB72-BF54637E4757}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{929F719B-30B1-40D0-BB72-BF54637E4757}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{929F719B-30B1-40D0-BB72-BF54637E4757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAFD66E-DB05-4D63-9591-05BD1491DC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAFD66E-DB05-4D63-9591-05BD1491DC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAFD66E-DB05-4D63-9591-05BD1491DC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAFD66E-DB05-4D63-9591-05BD1491DC5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{724C444E-0B48-4844-9EC7-7A024DD54BAD} = {C6B923C8-7D20-4841-9D05-46FDDBDB5C53}
 		{B8C96ECB-D19C-4B7D-84D3-03CAF9E74A8A} = {80EFF9B1-0646-4629-B5D7-50460789AE37}
 		{929F719B-30B1-40D0-BB72-BF54637E4757} = {80EFF9B1-0646-4629-B5D7-50460789AE37}
+		{0DAFD66E-DB05-4D63-9591-05BD1491DC5E} = {21ACC5CC-36F8-4670-8F57-14E14EDE8C3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B849E2-64E3-4EF3-8C63-B3779F504E7B}
