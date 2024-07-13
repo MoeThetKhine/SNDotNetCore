@@ -12,9 +12,9 @@ public class AdoDotNetExample
     #region Connection
 
     private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder =
-        new SqlConnectionStringBuilder()
+        new()
         {
-            DataSource = "localhost", // or "(local)" or your server name
+            DataSource = "localhost",
             InitialCatalog = "OJTBatch1",
             IntegratedSecurity = true,
             TrustServerCertificate = true,
@@ -26,7 +26,7 @@ public class AdoDotNetExample
 
     public void Read()
     {
-        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
 
         #region DataTable
 
@@ -34,9 +34,9 @@ public class AdoDotNetExample
         Console.WriteLine("Connection Open");
 
         string query = "select * from Tbl_Blog";
-        SqlCommand cmd = new SqlCommand(query, connection);
-        SqlDataAdapter sqlDataadapter = new SqlDataAdapter(cmd);
-        DataTable dt = new DataTable();
+        SqlCommand cmd = new(query, connection);
+        SqlDataAdapter sqlDataadapter = new(cmd);
+        DataTable dt = new();
         sqlDataadapter.Fill(dt);
 
         connection.Close();
@@ -76,7 +76,7 @@ public class AdoDotNetExample
               (@BlogTitle
                ,@BlogAuthor
                ,@BlogContent)";
-        SqlCommand cmd = new SqlCommand(query, connection);
+        SqlCommand cmd = new(query, connection);
         cmd.Parameters.AddWithValue("@BlogTitle", title);
         cmd.Parameters.AddWithValue("@BlogAuthor", author);
         cmd.Parameters.AddWithValue("@BlogContent", content);
@@ -102,7 +102,7 @@ public class AdoDotNetExample
             ,[BlogAuthor] = @BlogAuthor
             ,[BlogContent] = @BlogContent Where BlogId = @BlogId";
 
-        SqlCommand cmd = new SqlCommand(query, connection);
+        SqlCommand cmd = new(query, connection);
         cmd.Parameters.AddWithValue("@BlogId", id);
         cmd.Parameters.AddWithValue("@BlogTitle", title);
         cmd.Parameters.AddWithValue("@BlogAuthor", author);
@@ -121,10 +121,10 @@ public class AdoDotNetExample
 
     public void Delete(int id)
     {
-        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
         connection.Open();
         string query = @"DELETE from Tbl_Blog WHERE BlogId = @BlogId";
-        SqlCommand cmd = new SqlCommand(query, connection);
+        SqlCommand cmd = new(query, connection);
         cmd.Parameters.AddWithValue("@BlogId", id);
         int result = cmd.ExecuteNonQuery();
         connection.Close();
@@ -139,14 +139,14 @@ public class AdoDotNetExample
 
     public void Edit(int id)
     {
-        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
         connection.Open();
         string query = @"select * from Tbl_Blog where BlogId = @BlogId";
 
-        SqlCommand cmd = new SqlCommand(query, connection);
+        SqlCommand cmd = new(query, connection);
         cmd.Parameters.AddWithValue("@BlogId", id);
-        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-        DataTable dt = new DataTable();
+        SqlDataAdapter sqlDataAdapter = new(cmd);
+        DataTable dt = new();
         sqlDataAdapter.Fill(dt);
 
         connection.Close();
