@@ -1,17 +1,18 @@
 ﻿#region using
 
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 #endregion
 
-namespace MTKDotNetCore.ConsoleApp.AdoDotNet
-{
-    public class AdoDotNetExample
-    {
-        #region Connection
+namespace MTKDotNetCore.ConsoleApp.AdoDotNet;
 
-        private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+public class AdoDotNetExample
+{
+    #region Connection
+
+    private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder =
+        new SqlConnectionStringBuilder()
         {
             DataSource = "localhost", // or "(local)" or your server name
             InitialCatalog = "OJTBatch1",
@@ -19,142 +20,34 @@ namespace MTKDotNetCore.ConsoleApp.AdoDotNet
             TrustServerCertificate = true,
         };
 
-        #endregion
+    #endregion
 
-        #region Read
+    #region Read
 
-        public void Read()
-        {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+    public void Read()
+    {
+        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
 
-            #region DataTable
+        #region DataTable
 
-            connection.Open();
-            Console.WriteLine("Connection Open");
+        connection.Open();
+        Console.WriteLine("Connection Open");
 
-            string query = "select * from Tbl_Blog";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            SqlDataAdapter sqlDataadapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sqlDataadapter.Fill(dt);
+        string query = "select * from Tbl_Blog";
+        SqlCommand cmd = new SqlCommand(query, connection);
+        SqlDataAdapter sqlDataadapter = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        sqlDataadapter.Fill(dt);
 
-            connection.Close();
-            Console.WriteLine("Connection Close");
-
-            #endregion
-
-            #region Data Set
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                Console.WriteLine("Blog Id => " + dr["BlogId"]);
-                Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
-                Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
-                Console.WriteLine("Blog Content => " + dr["BlogContent"]);
-                Console.WriteLine("__________________________");
-            }
-
-            #endregion
-        }
+        connection.Close();
+        Console.WriteLine("Connection Close");
 
         #endregion
 
-        #region Create
+        #region Data Set
 
-        public void Create(string title, string author, string content)
+        foreach (DataRow dr in dt.Rows)
         {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-            string query = @"INSERT INTO [dbo].[Tbl_Blog]
-              ([BlogTitle]
-              ,[BlogAuthor]
-              ,[BlogContent])
-
-                VALUES
-              (@BlogTitle
-               ,@BlogAuthor
-               ,@BlogContent)";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogTitle", title);
-            cmd.Parameters.AddWithValue("@BlogAuthor", author);
-            cmd.Parameters.AddWithValue("@BlogContent", content);
-
-            int result = cmd.ExecuteNonQuery();
-            connection.Close();
-            string message = result > 0 ? "Saving Successful" : "Saving Fail";
-
-            Console.WriteLine(message);
-        }
-
-        #endregion
-
-        #region Update
-
-        public void Update(int id, string title, string author, string content)
-        {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-            string query = @"Update[dbo].[Tbl_Blog] 
-            SET[BlogTitle] = @BlogTitle
-            ,[BlogAuthor] = @BlogAuthor
-            ,[BlogContent] = @BlogContent Where BlogId = @BlogId";
-
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            cmd.Parameters.AddWithValue("@BlogTitle", title);
-            cmd.Parameters.AddWithValue("@BlogAuthor", author);
-            cmd.Parameters.AddWithValue("@BlogContent", content);
-
-
-            int result = cmd.ExecuteNonQuery();
-            connection.Close();
-            string message = result > 0 ? "Updating Successful" : "Updating Fail";
-
-            Console.WriteLine(message);
-        }
-
-        #endregion
-
-        #region Delete
-
-        public void Delete(int id)
-        {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-            string query = @"DELETE from Tbl_Blog WHERE BlogId = @BlogId";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            int result = cmd.ExecuteNonQuery();
-            connection.Close();
-
-            string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
-            Console.WriteLine(message);
-        }
-
-        #endregion
-
-        #region Edit
-
-        public void Edit(int id)
-        {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-            string query = @"select * from Tbl_Blog where BlogId = @BlogId";
-
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sqlDataAdapter.Fill(dt);
-
-            connection.Close();
-            if (dt.Rows.Count == 0)
-            {
-                Console.WriteLine("No Data Found");
-                return;
-            }
-            DataRow dr = dt.Rows[0];
-
             Console.WriteLine("Blog Id => " + dr["BlogId"]);
             Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
             Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
@@ -164,4 +57,112 @@ namespace MTKDotNetCore.ConsoleApp.AdoDotNet
 
         #endregion
     }
+
+    #endregion
+
+    #region Create
+
+    public void Create(string title, string author, string content)
+    {
+        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query =
+            @"INSERT INTO [dbo].[Tbl_Blog]
+              ([BlogTitle]
+              ,[BlogAuthor]
+              ,[BlogContent])
+
+                VALUES
+              (@BlogTitle
+               ,@BlogAuthor
+               ,@BlogContent)";
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogTitle", title);
+        cmd.Parameters.AddWithValue("@BlogAuthor", author);
+        cmd.Parameters.AddWithValue("@BlogContent", content);
+
+        int result = cmd.ExecuteNonQuery();
+        connection.Close();
+        string message = result > 0 ? "Saving Successful" : "Saving Fail";
+
+        Console.WriteLine(message);
+    }
+
+    #endregion
+
+    #region Update
+
+    public void Update(int id, string title, string author, string content)
+    {
+        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query =
+            @"Update[dbo].[Tbl_Blog] 
+            SET[BlogTitle] = @BlogTitle
+            ,[BlogAuthor] = @BlogAuthor
+            ,[BlogContent] = @BlogContent Where BlogId = @BlogId";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        cmd.Parameters.AddWithValue("@BlogTitle", title);
+        cmd.Parameters.AddWithValue("@BlogAuthor", author);
+        cmd.Parameters.AddWithValue("@BlogContent", content);
+
+        int result = cmd.ExecuteNonQuery();
+        connection.Close();
+        string message = result > 0 ? "Updating Successful" : "Updating Fail";
+
+        Console.WriteLine(message);
+    }
+
+    #endregion
+
+    #region Delete
+
+    public void Delete(int id)
+    {
+        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query = @"DELETE from Tbl_Blog WHERE BlogId = @BlogId";
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        int result = cmd.ExecuteNonQuery();
+        connection.Close();
+
+        string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
+        Console.WriteLine(message);
+    }
+
+    #endregion
+
+    #region Edit
+
+    public void Edit(int id)
+    {
+        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        connection.Open();
+        string query = @"select * from Tbl_Blog where BlogId = @BlogId";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@BlogId", id);
+        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        sqlDataAdapter.Fill(dt);
+
+        connection.Close();
+        if (dt.Rows.Count == 0)
+        {
+            Console.WriteLine("No Data Found");
+            return;
+        }
+        DataRow dr = dt.Rows[0];
+
+        Console.WriteLine("Blog Id => " + dr["BlogId"]);
+        Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
+        Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
+        Console.WriteLine("Blog Content => " + dr["BlogContent"]);
+        Console.WriteLine("__________________________");
+    }
+
+    #endregion
 }
