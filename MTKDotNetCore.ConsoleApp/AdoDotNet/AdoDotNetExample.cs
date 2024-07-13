@@ -24,23 +24,21 @@ public class AdoDotNetExample
 
     #region Read
 
-    public void Read()
+    public async Task Read()
     {
         SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
 
         #region DataTable
 
-        connection.Open();
-        Console.WriteLine("Connection Open");
+        await connection.OpenAsync();
 
         string query = "select * from Tbl_Blog";
         SqlCommand cmd = new(query, connection);
-        SqlDataAdapter sqlDataadapter = new(cmd);
+        SqlDataAdapter adapter = new(cmd);
         DataTable dt = new();
-        sqlDataadapter.Fill(dt);
+        adapter.Fill(dt);
 
-        connection.Close();
-        Console.WriteLine("Connection Close");
+        await connection.CloseAsync();
 
         #endregion
 
@@ -62,10 +60,10 @@ public class AdoDotNetExample
 
     #region Create
 
-    public void Create(string title, string author, string content)
+    public async Task Create(string title, string author, string content)
     {
-        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-        connection.Open();
+        SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
+        await connection.OpenAsync();
         string query =
             @"INSERT INTO [dbo].[Tbl_Blog]
               ([BlogTitle]
@@ -81,8 +79,8 @@ public class AdoDotNetExample
         cmd.Parameters.AddWithValue("@BlogAuthor", author);
         cmd.Parameters.AddWithValue("@BlogContent", content);
 
-        int result = cmd.ExecuteNonQuery();
-        connection.Close();
+        int result = await cmd.ExecuteNonQueryAsync();
+        await connection.CloseAsync();
         string message = result > 0 ? "Saving Successful" : "Saving Fail";
 
         Console.WriteLine(message);
@@ -92,10 +90,10 @@ public class AdoDotNetExample
 
     #region Update
 
-    public void Update(int id, string title, string author, string content)
+    public async Task Update(int id, string title, string author, string content)
     {
-        SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-        connection.Open();
+        SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
+        await connection.OpenAsync();
         string query =
             @"Update[dbo].[Tbl_Blog] 
             SET[BlogTitle] = @BlogTitle
@@ -108,8 +106,8 @@ public class AdoDotNetExample
         cmd.Parameters.AddWithValue("@BlogAuthor", author);
         cmd.Parameters.AddWithValue("@BlogContent", content);
 
-        int result = cmd.ExecuteNonQuery();
-        connection.Close();
+        int result = await cmd.ExecuteNonQueryAsync();
+        await connection.CloseAsync();
         string message = result > 0 ? "Updating Successful" : "Updating Fail";
 
         Console.WriteLine(message);
@@ -119,15 +117,15 @@ public class AdoDotNetExample
 
     #region Delete
 
-    public void Delete(int id)
+    public async Task Delete(int id)
     {
         SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
-        connection.Open();
+        await connection.OpenAsync();
         string query = @"DELETE from Tbl_Blog WHERE BlogId = @BlogId";
         SqlCommand cmd = new(query, connection);
         cmd.Parameters.AddWithValue("@BlogId", id);
-        int result = cmd.ExecuteNonQuery();
-        connection.Close();
+        int result = await cmd.ExecuteNonQueryAsync();
+        await connection.CloseAsync();
 
         string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
         Console.WriteLine(message);
@@ -137,10 +135,10 @@ public class AdoDotNetExample
 
     #region Edit
 
-    public void Edit(int id)
+    public async Task Edit(int id)
     {
         SqlConnection connection = new(_sqlConnectionStringBuilder.ConnectionString);
-        connection.Open();
+        await connection.OpenAsync();
         string query = @"select * from Tbl_Blog where BlogId = @BlogId";
 
         SqlCommand cmd = new(query, connection);
@@ -148,8 +146,9 @@ public class AdoDotNetExample
         SqlDataAdapter sqlDataAdapter = new(cmd);
         DataTable dt = new();
         sqlDataAdapter.Fill(dt);
+        await connection.CloseAsync();
 
-        connection.Close();
+        await connection.CloseAsync();
         if (dt.Rows.Count == 0)
         {
             Console.WriteLine("No Data Found");
