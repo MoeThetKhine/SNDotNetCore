@@ -1,16 +1,15 @@
 ﻿using System.Data.SqlClient;
 
-namespace MTKDotNetCore.AdoDotNetCustomService.Database
+namespace MTKDotNetCore.AdoDotNetCustomService.Database;
+
+public class ConnectionStrings
 {
-    public class ConnectionStrings
-    {
-        public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+    public static SqlConnectionStringBuilder _sqlConnectionStringBuilder =
+        new()
         {
-            DataSource = "localhost", // or "(local)" or your server name
+            DataSource = "localhost",
             InitialCatalog = "OJTBatch1",
             IntegratedSecurity = true,
-            TrustServerCertificate = true,
+            TrustServerCertificate = true
         };
-
-    }
 }
