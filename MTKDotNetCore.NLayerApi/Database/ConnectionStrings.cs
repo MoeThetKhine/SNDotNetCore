@@ -1,17 +1,15 @@
 ﻿using System.Data.SqlClient;
 
-namespace MTKDotNetCore.NLayerApi.Database
+namespace MTKDotNetCore.NLayerApi.Database;
+
+public class ConnectionStrings
 {
-    public class ConnectionStrings
-    {
-       
-            public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-            {
-                DataSource = "localhost", // or "(local)" or your server name
-                InitialCatalog = "OJTBatch1",
-                IntegratedSecurity = true,
-                TrustServerCertificate = true,
-            };
-        
-    }
+    public static SqlConnectionStringBuilder _sqlConnectionStringBuilder =
+        new SqlConnectionStringBuilder()
+        {
+            DataSource = "localhost",
+            InitialCatalog = "OJTBatch1",
+            IntegratedSecurity = true,
+            TrustServerCertificate = true
+        };
 }
