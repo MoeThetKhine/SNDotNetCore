@@ -15,6 +15,7 @@ public class BlogAdoDotNetController : ControllerBase
     {
         _adoDotNetCustomService = adoDotNetCustomService;
     }
+
     [HttpGet]
     public IActionResult GetBlogs()
     {
@@ -27,9 +28,12 @@ public class BlogAdoDotNetController : ControllerBase
     public IActionResult Edit(int id)
     {
         string query = "select * from Tbl_Blog where BlogId = @BlogId";
-        var item = _adoDotNetCustomService.FirstOrDefault<BlogModel>(query,new AdoDotNetParameter("@BlogId",id));
+        var item = _adoDotNetCustomService.FirstOrDefault<BlogModel>(
+            query,
+            new AdoDotNetParameter("@BlogId", id)
+        );
 
-        if(item is null)
+        if (item is null)
         {
             return NotFound("No Data Found");
         }
@@ -39,7 +43,8 @@ public class BlogAdoDotNetController : ControllerBase
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
     {
-        string query = @"INSERT INTO [dbo].[Tbl_Blog]
+        string query =
+            @"INSERT INTO [dbo].[Tbl_Blog]
             ([BlogTitle]
               ,[BlogAuthor]
               ,[BlogContent])
@@ -48,25 +53,28 @@ public class BlogAdoDotNetController : ControllerBase
               (@BlogTitle
                ,@BlogAuthor
                ,@BlogContent)";
-        int result = _adoDotNetCustomService.Execute(query,
+        int result = _adoDotNetCustomService.Execute(
+            query,
             new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
             new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
-            new AdoDotNetParameter("@BlogContent",blog.BlogContent)
-            );
+            new AdoDotNetParameter("@BlogContent", blog.BlogContent)
+        );
         string message = result > 0 ? "Saving Successful" : "Saving Fail";
         return Ok(message);
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateBlog(int id,BlogModel blog)
+    public IActionResult UpdateBlog(int id, BlogModel blog)
     {
-        string query = @"UPDATE [dbo].[Tbl_Blog]
+        string query =
+            @"UPDATE [dbo].[Tbl_Blog]
                         SET [BlogTitle] = @BlogTitle,
                             [BlogAuthor] = @BlogAuthor,
                             [BlogContent] = @BlogContent
                         WHERE [BlogId] = @BlogId";
 
-        int result = _adoDotNetCustomService.Execute(query,
+        int result = _adoDotNetCustomService.Execute(
+            query,
             new AdoDotNetParameter("@BlogId", id),
             new AdoDotNetParameter("@BlogTitle", blog.BlogTitle!),
             new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor!),
@@ -85,5 +93,4 @@ public class BlogAdoDotNetController : ControllerBase
         string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
         return Ok(message);
     }
-
 }
