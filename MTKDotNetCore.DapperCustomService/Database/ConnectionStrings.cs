@@ -1,18 +1,15 @@
 ﻿using System.Data.SqlClient;
 
-namespace MTKDotNetCore.DapperCustomService.Database
-{
-    public class ConnectionStrings
-    {
+namespace MTKDotNetCore.DapperCustomService.Database;
 
-        public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+public class ConnectionStrings
+{
+    public static SqlConnectionStringBuilder _sqlConnectionStringBuilder =
+        new SqlConnectionStringBuilder()
         {
-            DataSource = "localhost", // or "(local)" or your server name
+            DataSource = "localhost",
             InitialCatalog = "OJTBatch1",
             IntegratedSecurity = true,
-            TrustServerCertificate = true,
+            TrustServerCertificate = true
         };
-
-
-    }
 }
