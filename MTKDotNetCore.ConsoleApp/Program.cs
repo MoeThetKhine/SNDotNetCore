@@ -1,9 +1,5 @@
 ﻿#region using
 
-using System.Data;
-using System.Data.SqlClient;
-using MTKDotNetCore.ConsoleApp.AdoDotNet;
-using MTKDotNetCore.ConsoleApp.Dapper;
 using MTKDotNetCore.ConsoleApp.EFCore;
 
 #endregion
@@ -27,7 +23,13 @@ using MTKDotNetCore.ConsoleApp.EFCore;
 
 #endregion
 
-EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Run();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        EFCoreExample eFCoreExample = new();
+        eFCoreExample.Run();
 
-Console.ReadKey();
+        Console.ReadKey();
+    }
+}
