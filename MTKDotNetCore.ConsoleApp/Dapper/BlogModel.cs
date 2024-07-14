@@ -1,6 +1,7 @@
 ﻿namespace MTKDotNetCore.ConsoleApp.Dapper;
 
 #region BlogModel
+
 public class BlogModel
 {
     public long BlogId { get; set; }
