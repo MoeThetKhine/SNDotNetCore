@@ -11,6 +11,7 @@ namespace MTKDotNetCore.ConsoleApp.Dapper;
 public class DapperExample
 {
     #region Run
+
     public void Run()
     {
         // Read();
@@ -20,6 +21,7 @@ public class DapperExample
         //Update(2,"edited title2", "edited author2", "edited contnent2");
         Delete(13);
     }
+
     #endregion
 
     #region Read
