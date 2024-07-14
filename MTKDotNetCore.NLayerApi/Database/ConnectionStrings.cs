@@ -5,7 +5,7 @@ namespace MTKDotNetCore.NLayerApi.Database;
 public class ConnectionStrings
 {
     public static SqlConnectionStringBuilder _sqlConnectionStringBuilder =
-        new SqlConnectionStringBuilder()
+        new()
         {
             DataSource = "localhost",
             InitialCatalog = "OJTBatch1",
