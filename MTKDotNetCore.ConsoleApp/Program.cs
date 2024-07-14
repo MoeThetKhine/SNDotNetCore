@@ -1,10 +1,10 @@
 ﻿#region using
 
+using System.Data;
+using System.Data.SqlClient;
 using MTKDotNetCore.ConsoleApp.AdoDotNet;
 using MTKDotNetCore.ConsoleApp.Dapper;
 using MTKDotNetCore.ConsoleApp.EFCore;
-using System.Data;
-using System.Data.SqlClient;
 
 #endregion
 
