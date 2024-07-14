@@ -45,6 +45,7 @@ public class DapperExample
     #endregion
 
     #region Edit
+
     private void Edit(int id)
     {
         using IDbConnection db = new SqlConnection(
@@ -66,9 +67,11 @@ public class DapperExample
         Console.WriteLine(item.BlogAuthor);
         Console.WriteLine(item.BlogContent);
     }
+
     #endregion
 
     #region Create
+
     private void Create(string title, string author, string content)
     {
         var item = new BlogModel
@@ -96,9 +99,11 @@ public class DapperExample
         string message = result > 0 ? "Saving Successful" : "Saving Fail";
         Console.WriteLine(message);
     }
+
     #endregion
 
     #region Update
+
     private void Update(int id, string title, string author, string content)
     {
         var item = new BlogModel
@@ -122,6 +127,7 @@ public class DapperExample
         string message = result > 0 ? "Updating Successful" : "Updating Fail";
         Console.WriteLine(message);
     }
+
     #endregion
 
     #region Delete
@@ -141,5 +147,6 @@ public class DapperExample
         string message = result > 0 ? "Deleting Successful" : "Deleting Fail";
         Console.WriteLine(message);
     }
+
     #endregion
 }
