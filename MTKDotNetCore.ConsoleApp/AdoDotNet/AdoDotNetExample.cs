@@ -17,7 +17,7 @@ public class AdoDotNetExample
             DataSource = "localhost",
             InitialCatalog = "OJTBatch1",
             IntegratedSecurity = true,
-            TrustServerCertificate = true,
+            TrustServerCertificate = true
         };
 
     #endregion
