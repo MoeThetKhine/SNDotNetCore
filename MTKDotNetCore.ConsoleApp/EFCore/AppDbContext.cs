@@ -2,22 +2,17 @@
 
 using Microsoft.EntityFrameworkCore;
 using MTKDotNetCore.ConsoleApp.Dapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 #endregion
 
-namespace MTKDotNetCore.ConsoleApp.EFCore
+namespace MTKDotNetCore.ConsoleApp.EFCore;
+
+public class AppDbContext : DbContext
 {
-    public class AppDbContext: DbContext
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
-        }
-        public DbSet<BlogModel> Blogs { get; set; }
+        optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
     }
+
+    public DbSet<BlogModel> Blogs { get; set; }
 }
