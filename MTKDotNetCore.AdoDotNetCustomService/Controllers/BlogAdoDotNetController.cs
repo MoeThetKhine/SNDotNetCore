@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.AdoDotNetCustomService.Model;
-using MTKDotNetCore.AdoDotNetCustomService.Shared;
-using static MTKDotNetCore.AdoDotNetCustomService.Shared.AdoDotNetService;
-
-namespace MTKDotNetCore.AdoDotNetCustomService.Controllers;
+﻿namespace MTKDotNetCore.AdoDotNetCustomService.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
