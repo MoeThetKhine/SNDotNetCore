@@ -20,10 +20,12 @@ public static class DevCode
 
     #endregion
 
-
+    #region Map
 
     public static SqlParameter Map(this AdoDotNetParameter parameter)
     {
         return new SqlParameter(parameter.Name, parameter.Value);
     }
+
+    #endregion
 }
