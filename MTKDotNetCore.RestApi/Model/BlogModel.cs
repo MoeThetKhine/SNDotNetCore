@@ -1,5 +1,7 @@
 ﻿namespace MTKDotNetCore.EFCoreRestApi.Model;
 
+#region Blog Model
+
 [Table("Tbl_Blog")]
 public class BlogModel
 {
@@ -10,3 +12,5 @@ public class BlogModel
     public string BlogContent { get; set; }
     public bool IsActive { get; set; }
 }
+
+#endregion
