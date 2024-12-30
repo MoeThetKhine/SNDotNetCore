@@ -1,10 +1,4 @@
-﻿#region using
-
-using System.Data.SqlClient;
-
-#endregion
-
-namespace MTKDotNetCore.ConsoleApp.Dapper;
+﻿namespace MTKDotNetCore.ConsoleApp.Dapper;
 
 #region ConnectionString
 
