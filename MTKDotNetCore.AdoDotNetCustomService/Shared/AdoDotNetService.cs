@@ -184,6 +184,8 @@ public class AdoDotNetService
 
     #endregion
 
+    #region AdoDotNetParameter
+
     public class AdoDotNetParameter
     {
         public AdoDotNetParameter() { }
@@ -197,6 +199,8 @@ public class AdoDotNetService
         public string Name { get; set; }
         public object Value { get; set; }
     }
+
+    #endregion
 
     private SqlConnection GetConnection() => new(_connectionString);
 }
