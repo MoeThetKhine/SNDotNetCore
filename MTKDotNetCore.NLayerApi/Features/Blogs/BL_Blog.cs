@@ -1,6 +1,4 @@
-﻿using MTKDotNetCore.NLayerApi.Model;
-
-namespace MTKDotNetCore.NLayerApi.Features.Blogs;
+﻿namespace MTKDotNetCore.NLayerApi.Features.Blogs;
 
 public class BL_Blog
 {
