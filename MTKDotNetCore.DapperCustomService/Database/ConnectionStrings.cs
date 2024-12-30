@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace MTKDotNetCore.DapperCustomService.Database;
+﻿namespace MTKDotNetCore.DapperCustomService.Database;
 
 public class ConnectionStrings
 {
