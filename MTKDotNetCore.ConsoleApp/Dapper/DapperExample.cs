@@ -1,12 +1,4 @@
-﻿#region using
-
-using System.Data;
-using System.Data.SqlClient;
-using Dapper;
-
-#endregion
-
-namespace MTKDotNetCore.ConsoleApp.Dapper;
+﻿namespace MTKDotNetCore.ConsoleApp.Dapper;
 
 public class DapperExample
 {
