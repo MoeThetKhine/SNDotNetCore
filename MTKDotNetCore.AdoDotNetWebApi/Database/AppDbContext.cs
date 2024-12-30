@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.AdoDotNetWebApi.Model;
-
-namespace MTKDotNetCore.AdoDotNetWebApi.Database
+﻿namespace MTKDotNetCore.AdoDotNetWebApi.Database
 {
     internal class AppDbContext : DbContext
     {
