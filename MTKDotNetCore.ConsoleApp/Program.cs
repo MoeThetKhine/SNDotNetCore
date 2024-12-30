@@ -17,6 +17,8 @@
 
 #endregion
 
+#region Program
+
 public class Program
 {
     private static void Main(string[] args)
@@ -27,3 +29,5 @@ public class Program
         Console.ReadKey();
     }
 }
+
+#endregion
