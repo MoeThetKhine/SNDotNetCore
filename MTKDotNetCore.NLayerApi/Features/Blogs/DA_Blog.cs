@@ -1,7 +1,4 @@
-﻿using MTKDotNetCore.NLayerApi.Database;
-using MTKDotNetCore.NLayerApi.Model;
-
-namespace MTKDotNetCore.NLayerApi.Features.Blogs;
+﻿namespace MTKDotNetCore.NLayerApi.Features.Blogs;
 
 public class DA_Blog
 {
