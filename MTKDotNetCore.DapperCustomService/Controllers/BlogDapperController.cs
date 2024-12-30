@@ -11,6 +11,8 @@ public class BlogDapperController : ControllerBase
         _dapperService = dapperCustomService;
     }
 
+    #region GetBlogs
+
     [HttpGet]
     public IActionResult GetBlogs()
     {
@@ -19,6 +21,8 @@ public class BlogDapperController : ControllerBase
 
         return Ok(lst);
     }
+
+    #endregion
 
     private BlogModel? FindById(int id)
     {
