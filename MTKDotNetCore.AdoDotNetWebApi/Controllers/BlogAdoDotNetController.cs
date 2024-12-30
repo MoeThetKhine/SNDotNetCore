@@ -4,6 +4,7 @@
 [ApiController]
 public class BlogAdoDotNetController : ControllerBase
 {
+    #region GetBlogs
 
     [HttpGet]
     public IActionResult GetBlogs()
@@ -40,6 +41,8 @@ public class BlogAdoDotNetController : ControllerBase
         }).ToList();
         return Ok(lst);
     }
+
+    #endregion
 
 
     [HttpGet("{id}")]
