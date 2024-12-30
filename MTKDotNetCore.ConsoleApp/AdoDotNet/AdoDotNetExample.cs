@@ -1,11 +1,4 @@
-﻿#region using
-
-using System.Data;
-using System.Data.SqlClient;
-
-#endregion
-
-namespace MTKDotNetCore.ConsoleApp.AdoDotNet;
+﻿namespace MTKDotNetCore.ConsoleApp.AdoDotNet;
 
 public class AdoDotNetExample
 {
