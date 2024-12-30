@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace MTKDotNetCore.DapperRestApi.Database
+﻿namespace MTKDotNetCore.DapperRestApi.Database
 {
     #region ConnectionStrings
     public class ConnectionStrings
