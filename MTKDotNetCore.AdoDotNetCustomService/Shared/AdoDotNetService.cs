@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace MTKDotNetCore.AdoDotNetCustomService.Shared;
+﻿namespace MTKDotNetCore.AdoDotNetCustomService.Shared;
 
 public class AdoDotNetService
 {
