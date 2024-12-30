@@ -171,8 +171,3 @@ public class BlogAdoDotNetController : ControllerBase
     #endregion
 
 }
-
-
-
-
-
