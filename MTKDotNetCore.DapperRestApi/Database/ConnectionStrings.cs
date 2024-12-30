@@ -1,15 +1,14 @@
-﻿namespace MTKDotNetCore.DapperRestApi.Database
+﻿namespace MTKDotNetCore.DapperRestApi.Database;
+
+#region ConnectionStrings
+public class ConnectionStrings
 {
-    #region ConnectionStrings
-    public class ConnectionStrings
+    public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
     {
-        public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-        {
-            DataSource = "localhost", // or "(local)" or your server name
-            InitialCatalog = "OJTBatch1",
-            IntegratedSecurity = true,
-            TrustServerCertificate = true,
-        };
-    }
-    #endregion
+        DataSource = "localhost", // or "(local)" or your server name
+        InitialCatalog = "OJTBatch1",
+        IntegratedSecurity = true,
+        TrustServerCertificate = true,
+    };
 }
+#endregion
