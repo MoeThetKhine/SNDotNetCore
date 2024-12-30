@@ -1,12 +1,9 @@
 ﻿#region using
 
 using Dapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MTKDotNetCore.DapperRestApi.Database;
-using MTKDotNetCore.DapperRestApi.Model;
 using System.Data;
-using System.Data.SqlClient;
 
 #endregion
 
