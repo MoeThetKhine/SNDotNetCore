@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.NLayerApi.Model;
-
-namespace MTKDotNetCore.NLayerApi.Features.Blogs;
+﻿namespace MTKDotNetCore.NLayerApi.Features.Blogs;
 
 public class BlogController
 {
