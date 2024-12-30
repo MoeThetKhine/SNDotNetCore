@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace MTKDotNetCore.EFCoreRestApi.Database
+﻿namespace MTKDotNetCore.EFCoreRestApi.Database
 {
     #region ConnectionStrings
 
