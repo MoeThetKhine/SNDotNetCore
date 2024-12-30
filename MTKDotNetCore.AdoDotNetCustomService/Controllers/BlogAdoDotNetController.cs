@@ -70,6 +70,8 @@ public class BlogAdoDotNetController : ControllerBase
 
     #endregion
 
+    #region UpdateBlog
+
     [HttpPut("{id}")]
     public IActionResult UpdateBlog(int id, BlogModel blog)
     {
@@ -91,6 +93,8 @@ public class BlogAdoDotNetController : ControllerBase
         string message = result > 0 ? "Update Successful." : "Update Failed.";
         return Ok(message);
     }
+
+    #endregion
 
     [HttpDelete("{id}")]
     public IActionResult DeleteBlog(int id)
