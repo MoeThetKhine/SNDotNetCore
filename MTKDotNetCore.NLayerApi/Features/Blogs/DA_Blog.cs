@@ -29,12 +29,16 @@ public class DA_Blog
 
     #endregion
 
+    #region CreateBlog
+
     public int CreateBlog(BlogModel requestModel)
     {
         _context.Blogs.Add(requestModel);
         var result = _context.SaveChanges();
         return result;
     }
+
+    #endregion
 
     public int UpdateBlog(int id, BlogModel requestModel)
     {
