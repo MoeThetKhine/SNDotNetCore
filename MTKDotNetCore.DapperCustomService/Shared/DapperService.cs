@@ -76,11 +76,15 @@ public class DapperService
 
     #endregion
 
+    #region ExecuteAsync
+
     public async Task<int> ExecuteAsync(string query, object parameters)
     {
         using IDbConnection db = GetConnection();
         return await db.ExecuteAsync(query, parameters);
     }
+
+    #endregion
 
     private SqlConnection GetConnection() => new(_connectionString);
 }
