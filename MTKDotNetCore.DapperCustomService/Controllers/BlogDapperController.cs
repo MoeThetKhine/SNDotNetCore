@@ -24,6 +24,8 @@ public class BlogDapperController : ControllerBase
 
     #endregion
 
+    #region FindById
+
     private BlogModel? FindById(int id)
     {
         string query = "select * from Tbl_Blog where BogId = @BlogId";
@@ -33,6 +35,8 @@ public class BlogDapperController : ControllerBase
         );
         return item;
     }
+
+    #endregion
 
     [HttpGet("{id}")]
     public IActionResult EditBlog(int id)
