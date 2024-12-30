@@ -42,6 +42,8 @@ public class DapperService
 
     #endregion
 
+    #region QueryAsync
+
     public async Task<List<T>> QueryAsync<T>(
         string query,
         object? parameters = null,
@@ -52,6 +54,8 @@ public class DapperService
         var lst = await db.QueryAsync<T>(query, parameters, commandType: commandType);
         return lst.ToList();
     }
+
+    #endregion
 
     public async Task<T> QueryFirstOrDefaultAsync<T>(
         string query,
