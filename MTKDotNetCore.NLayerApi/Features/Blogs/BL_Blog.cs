@@ -49,9 +49,13 @@ public class BL_Blog
 
     #endregion
 
+    #region UpdateBlog
+
     public int DeleteBlog(int id)
     {
         var result = _daBlog.DeleteBlog(id);
         return result;
     }
+
+    #endregion
 }
