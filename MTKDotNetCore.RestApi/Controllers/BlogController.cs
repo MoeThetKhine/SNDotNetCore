@@ -12,6 +12,7 @@ public class BlogController : ControllerBase
     }
 
     #region Read
+
     [HttpGet]
     public IActionResult Read()
     {
