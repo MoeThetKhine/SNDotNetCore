@@ -19,11 +19,15 @@ public class DA_Blog
 
     #endregion
 
+    #region GetBlog
+
     public BlogModel GetBlog(int id)
     {
         var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
         return item;
     }
+
+    #endregion
 
     public int CreateBlog(BlogModel requestModel)
     {
