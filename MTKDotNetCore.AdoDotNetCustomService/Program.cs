@@ -1,5 +1,3 @@
-using MTKDotNetCore.AdoDotNetCustomService.Shared;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
