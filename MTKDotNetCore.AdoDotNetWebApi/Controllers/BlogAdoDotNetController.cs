@@ -44,6 +44,7 @@ public class BlogAdoDotNetController : ControllerBase
 
     #endregion
 
+    #region EditBlog
 
     [HttpGet("{id}")]
     public IActionResult EditBlog(int id)
@@ -76,6 +77,9 @@ public class BlogAdoDotNetController : ControllerBase
         };
         return Ok(item);
     }
+
+    #endregion
+
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
     {
