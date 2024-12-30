@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.DapperCustomService.Model;
-
-namespace MTKDotNetCore.DapperCustomService.Database;
+﻿namespace MTKDotNetCore.DapperCustomService.Database;
 
 internal class AppDbContext : DbContext
 {
