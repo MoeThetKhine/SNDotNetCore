@@ -38,6 +38,8 @@ public class BlogDapperController : ControllerBase
 
     #endregion
 
+    #region FindById
+
     [HttpGet("{id}")]
     public IActionResult EditBlog(int id)
     {
@@ -48,6 +50,8 @@ public class BlogDapperController : ControllerBase
         }
         return Ok(item);
     }
+
+    #endregion
 
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
