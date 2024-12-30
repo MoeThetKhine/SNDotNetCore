@@ -53,6 +53,8 @@ public class BlogDapperController : ControllerBase
 
     #endregion
 
+    #region CreateBlog
+
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
     {
@@ -70,6 +72,8 @@ public class BlogDapperController : ControllerBase
         string message = result > 0 ? "Saving Successful" : "Saving Fail";
         return Ok(message);
     }
+
+    #endregion
 
     [HttpPut("{id}")]
     public IActionResult UpdateBlog(int id, BlogModel blog)
