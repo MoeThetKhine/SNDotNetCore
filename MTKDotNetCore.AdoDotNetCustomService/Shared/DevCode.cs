@@ -1,8 +1,4 @@
-﻿using System.Data.SqlClient;
-using Newtonsoft.Json;
-using static MTKDotNetCore.AdoDotNetCustomService.Shared.AdoDotNetService;
-
-namespace MTKDotNetCore.AdoDotNetCustomService.Shared;
+﻿namespace MTKDotNetCore.AdoDotNetCustomService.Shared;
 
 public static class DevCode
 {
