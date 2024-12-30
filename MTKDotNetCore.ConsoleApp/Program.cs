@@ -1,10 +1,4 @@
-﻿#region using
-
-using MTKDotNetCore.ConsoleApp.EFCore;
-
-#endregion
-
-#region AdoDotNetExample
+﻿#region AdoDotNetExample
 
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Read();
