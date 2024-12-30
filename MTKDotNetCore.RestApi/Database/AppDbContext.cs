@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.EFCoreRestApi.Model;
-
-namespace MTKDotNetCore.EFCoreRestApi.Database
+﻿namespace MTKDotNetCore.EFCoreRestApi.Database
 {
     internal class AppDbContext : DbContext 
     {
