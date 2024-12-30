@@ -11,10 +11,16 @@ public static class DevCode
 
     #endregion
 
+    #region DeserializeObject
+
     public static T DeserializeObject<T>(this string jsonStr)
     {
         return JsonConvert.DeserializeObject<T>(jsonStr)!;
     }
+
+    #endregion
+
+
 
     public static SqlParameter Map(this AdoDotNetParameter parameter)
     {
