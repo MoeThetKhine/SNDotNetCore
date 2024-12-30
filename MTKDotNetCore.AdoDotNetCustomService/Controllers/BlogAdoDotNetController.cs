@@ -96,6 +96,8 @@ public class BlogAdoDotNetController : ControllerBase
 
     #endregion
 
+    #region DeleteBlog
+
     [HttpDelete("{id}")]
     public IActionResult DeleteBlog(int id)
     {
@@ -104,4 +106,7 @@ public class BlogAdoDotNetController : ControllerBase
         string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
         return Ok(message);
     }
+
+    #endregion
+
 }
