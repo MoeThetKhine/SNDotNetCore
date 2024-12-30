@@ -11,6 +11,8 @@ public class BlogAdoDotNetController : ControllerBase
         _adoDotNetCustomService = adoDotNetCustomService;
     }
 
+    #region GetBlogs
+
     [HttpGet]
     public IActionResult GetBlogs()
     {
@@ -18,6 +20,8 @@ public class BlogAdoDotNetController : ControllerBase
         var lst = _adoDotNetCustomService.Query<BlogModel>(query);
         return Ok(lst);
     }
+
+    #endregion
 
     [HttpGet]
     public IActionResult Edit(int id)
