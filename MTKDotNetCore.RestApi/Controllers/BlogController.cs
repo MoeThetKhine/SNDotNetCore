@@ -1,11 +1,4 @@
-﻿#region using
-
-using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.EFCoreRestApi.Database;
-
-#endregion 
-
-namespace MTKDotNetCore.EFCoreRestApi.Controllers
+﻿namespace MTKDotNetCore.EFCoreRestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
