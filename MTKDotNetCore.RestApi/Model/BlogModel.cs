@@ -1,10 +1,4 @@
-﻿#region using
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-#endregion
-
-namespace MTKDotNetCore.EFCoreRestApi.Model
+﻿namespace MTKDotNetCore.EFCoreRestApi.Model
 {
     [Table("Tbl_Blog")]
     public class BlogModel
