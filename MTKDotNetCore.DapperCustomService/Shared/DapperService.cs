@@ -20,12 +20,16 @@ public class DapperService
 
     #endregion
 
+    #region Execute
+
     public int Execute(string query, object? param = null)
     {
         using IDbConnection db = GetConnection();
         var result = db.Execute(query, param);
         return result;
     }
+
+    #endregion
 
     public M QueryFirstOrDefault<M>(string query, object? param = null)
     {
