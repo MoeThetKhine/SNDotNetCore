@@ -23,6 +23,8 @@ public class BlogAdoDotNetController : ControllerBase
 
     #endregion
 
+    #region Edit
+
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -38,6 +40,8 @@ public class BlogAdoDotNetController : ControllerBase
         }
         return Ok(item);
     }
+
+    #endregion
 
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
