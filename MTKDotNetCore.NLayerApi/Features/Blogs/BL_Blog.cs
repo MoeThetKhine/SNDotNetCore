@@ -29,11 +29,15 @@ public class BL_Blog
 
     #endregion
 
+    #region CreateBlog
+
     public int CreateBlog(BlogModel requestModel)
     {
         var result = _daBlog.CreateBlog(requestModel);
         return result;
     }
+
+    #endregion
 
     public int UpdateBlog(int id, BlogModel requestModel)
     {
