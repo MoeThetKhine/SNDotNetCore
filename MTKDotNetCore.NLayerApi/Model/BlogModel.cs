@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace MTKDotNetCore.NLayerApi.Model
+﻿namespace MTKDotNetCore.NLayerApi.Model
 {
     [Table("Tbl_Blog")]
     public class BlogModel
