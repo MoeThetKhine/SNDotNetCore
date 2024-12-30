@@ -35,10 +35,14 @@ public class BlogController
 
     #endregion
 
+    #region CreateBlog
+
     [HttpPost]
     public IActionResult CreateBlog(BlogModel blog)
     {
         var result = _bL_Blog.CreateBlog(blog);
         string 
-    } 
+    }
+
+    #endregion
 }
