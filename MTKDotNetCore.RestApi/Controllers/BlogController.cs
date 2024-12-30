@@ -1,10 +1,7 @@
 ﻿#region using
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MTKDotNetCore.EFCoreRestApi.Database;
-//using MTKDotNetCore.EFCoreRestApi.Database;
-using MTKDotNetCore.EFCoreRestApi.Model;
 
 #endregion 
 
