@@ -1,6 +1,7 @@
 ﻿namespace MTKDotNetCore.DapperRestApi.Database;
 
 #region ConnectionStrings
+
 public class ConnectionStrings
 {
     public static SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
