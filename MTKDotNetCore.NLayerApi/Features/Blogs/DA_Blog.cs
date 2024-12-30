@@ -9,11 +9,15 @@ public class DA_Blog
         _context = new AppDbContext();
     }
 
+    #region GetBlogs
+
     public List<BlogModel> GetBlogs()
     {
         var lst = _context.Blogs.ToList();
         return lst;
     }
+
+    #endregion
 
     public BlogModel GetBlog(int id)
     {
