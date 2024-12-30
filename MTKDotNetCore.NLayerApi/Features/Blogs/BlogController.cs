@@ -8,12 +8,18 @@ public class BlogController
     {
         _bL_Blog = new BL_Blog();
     }
+
+    #region Read
+
     [HttpGet]
     public IActionResult Read()
     {
         var lst = _bL_Blog.GetBlogs();
         return Ok(lst);
     }
+
+    #endregion
+
     [HttpGet("{id}")]
     public IActionResult Edit(int id)
     {
