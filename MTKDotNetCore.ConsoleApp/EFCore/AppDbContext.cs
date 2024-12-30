@@ -1,11 +1,4 @@
-﻿#region using
-
-using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.ConsoleApp.Dapper;
-
-#endregion
-
-namespace MTKDotNetCore.ConsoleApp.EFCore;
+﻿namespace MTKDotNetCore.ConsoleApp.EFCore;
 
 public class AppDbContext : DbContext
 {
