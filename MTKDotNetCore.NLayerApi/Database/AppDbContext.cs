@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.NLayerApi.Model;
-
-namespace MTKDotNetCore.NLayerApi.Database;
+﻿namespace MTKDotNetCore.NLayerApi.Database;
 
 internal class AppDbContext : DbContext
 {
