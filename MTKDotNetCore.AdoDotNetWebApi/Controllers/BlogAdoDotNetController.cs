@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using MTKDotNetCore.AdoDotNetWebApi.Database;
-
-namespace MTKDotNetCore.AdoDotNetWebApi.Controllers;
+﻿namespace MTKDotNetCore.AdoDotNetWebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
