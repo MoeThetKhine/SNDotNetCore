@@ -9,12 +9,16 @@ public class DapperService
         _connectionString = connectionString;
     }
 
+    #region Query
+
     public List<M> Query<M>(string query, object? param = null)
     {
         using IDbConnection db = GetConnection();
         var lst = db.Query<M>(query, param).ToList();
         return lst;
     }
+
+    #endregion
 
     public int Execute(string query, object? param = null)
     {
