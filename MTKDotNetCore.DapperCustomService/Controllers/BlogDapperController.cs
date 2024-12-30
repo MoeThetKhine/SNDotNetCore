@@ -129,6 +129,9 @@ public class BlogDapperController : ControllerBase
         {
             return NotFound("No Data Found");
         }
+
+        #region Validation
+
         string conditions = string.Empty;
         if (!string.IsNullOrEmpty(blog.BlogTitle))
         {
@@ -146,6 +149,9 @@ public class BlogDapperController : ControllerBase
         {
             return NotFound("No data to update");
         }
+
+        #endregion
+
         conditions = conditions.Substring(0, conditions.Length - 2);
         blog.BlogId = id;
 
