@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MTKDotNetCore.AdoDotNetWebApi.Model;
-using MTKDotNetCore.AdoDotNetWebApi.Database;
 
 namespace MTKDotNetCore.AdoDotNetWebApi.Database
 {
