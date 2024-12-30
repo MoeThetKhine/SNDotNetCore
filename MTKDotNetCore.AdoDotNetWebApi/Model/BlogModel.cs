@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MTKDotNetCore.AdoDotNetWebApi.Model
+﻿namespace MTKDotNetCore.AdoDotNetWebApi.Model
 {
     public class BlogModel
     {
