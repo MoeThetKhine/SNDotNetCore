@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace MTKDotNetCore.NLayerApi.Features;
+﻿namespace MTKDotNetCore.NLayerApi.Features;
 
 public class ConnectionStrings
 {
