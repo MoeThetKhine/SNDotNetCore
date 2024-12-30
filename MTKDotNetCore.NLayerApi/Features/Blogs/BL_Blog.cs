@@ -19,11 +19,15 @@ public class BL_Blog
 
     #endregion
 
+    #region GetBlog
+
     public BlogModel GetBlog(int id)
     {
         var item = _daBlog.GetBlog(id);
         return item;
     }
+
+    #endregion
 
     public int CreateBlog(BlogModel requestModel)
     {
