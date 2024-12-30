@@ -1,5 +1,4 @@
-﻿using System.Data.SqlClient;
-
+﻿
 namespace MTKDotNetCore.AdoDotNetWebApi.Database
 {
     public class ConnnectionStrings
