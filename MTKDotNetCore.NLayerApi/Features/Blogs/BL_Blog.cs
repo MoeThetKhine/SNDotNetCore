@@ -9,11 +9,15 @@ public class BL_Blog
         _daBlog = new DA_Blog();
     }
 
+    #region GetBlogs
+
     public List<BlogModel> GetBlogs()
     {
         var lst = _daBlog.GetBlogs();
         return lst;
     }
+
+    #endregion
 
     public BlogModel GetBlog(int id)
     {
