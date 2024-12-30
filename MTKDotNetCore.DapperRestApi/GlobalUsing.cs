@@ -3,3 +3,7 @@ global using System.ComponentModel.DataAnnotations;
 global using System.Data.SqlClient;
 global using Microsoft.EntityFrameworkCore;
 global using MTKDotNetCore.DapperRestApi.Model;
+global using Dapper;
+global using Microsoft.AspNetCore.Mvc;
+global using MTKDotNetCore.DapperRestApi.Database;
+global using System.Data;

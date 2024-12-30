@@ -1,13 +1,4 @@
-﻿#region using
-
-using Dapper;
-using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.DapperRestApi.Database;
-using System.Data;
-
-#endregion
-
-namespace MTKDotNetCore.DapperRestApi.Controllers
+﻿namespace MTKDotNetCore.DapperRestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
