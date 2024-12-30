@@ -119,6 +119,8 @@ public class BlogDapperController : ControllerBase
 
     #endregion
 
+    #region PatchBlog
+
     [HttpPatch("{id}")]
     public IActionResult PatchBlog(int id, BlogModel blog)
     {
@@ -152,4 +154,6 @@ public class BlogDapperController : ControllerBase
         string message = result > 0 ? "Updating Successful" : "Updating Fail";
         return Ok(message);
     }
+
+    #endregion
 }
