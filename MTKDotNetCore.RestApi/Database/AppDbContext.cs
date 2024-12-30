@@ -1,11 +1,10 @@
-﻿namespace MTKDotNetCore.EFCoreRestApi.Database
+﻿namespace MTKDotNetCore.EFCoreRestApi.Database;
+
+internal class AppDbContext : DbContext 
 {
-    internal class AppDbContext : DbContext 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
-        }
-       public DbSet<BlogModel> Blogs { get; set; }
+        optionsBuilder.UseSqlServer(ConnectionStrings._sqlConnectionStringBuilder.ConnectionString);
     }
+   public DbSet<BlogModel> Blogs { get; set; }
 }
