@@ -159,6 +159,8 @@ public class AdoDotNetService
 
     #endregion
 
+    #region ExecuteAsync
+
     public async Task<int> ExecuteAsync(
         string query,
         AdoDotNetParameter[]? parameters = null,
@@ -179,6 +181,8 @@ public class AdoDotNetService
 
         return result;
     }
+
+    #endregion
 
     public class AdoDotNetParameter
     {
