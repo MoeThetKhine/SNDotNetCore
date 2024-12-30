@@ -131,6 +131,8 @@ public class AdoDotNetService
 
     #endregion
 
+    #region QueryFirstOrDefaultAsync
+
     public async Task<DataTable> QueryFirstOrDefaultAsync(
         string query,
         AdoDotNetParameter[]? parameters = null,
@@ -154,6 +156,8 @@ public class AdoDotNetService
 
         return dt;
     }
+
+    #endregion
 
     public async Task<int> ExecuteAsync(
         string query,
