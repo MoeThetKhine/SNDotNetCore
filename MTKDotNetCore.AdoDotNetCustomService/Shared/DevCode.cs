@@ -2,10 +2,14 @@
 
 public static class DevCode
 {
+    #region SerializeObject
+
     public static string SerializeObject(this object obj)
     {
         return JsonConvert.SerializeObject(obj);
     }
+
+    #endregion
 
     public static T DeserializeObject<T>(this string jsonStr)
     {
