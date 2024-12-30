@@ -1,11 +1,4 @@
-﻿#region using
-
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-#endregion
-
-namespace MTKDotNetCore.ConsoleApp.EFCore;
+﻿namespace MTKDotNetCore.ConsoleApp.EFCore;
 
 [Table("Tbl_Blog")]
 public class BlogModel
