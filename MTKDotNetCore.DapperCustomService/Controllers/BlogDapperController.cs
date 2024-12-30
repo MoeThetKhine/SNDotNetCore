@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.DapperCustomService.Model;
-using MTKDotNetCore.DapperCustomService.Shared;
-
-namespace MTKDotNetCore.DapperCustomService.Controllers;
+﻿namespace MTKDotNetCore.DapperCustomService.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
