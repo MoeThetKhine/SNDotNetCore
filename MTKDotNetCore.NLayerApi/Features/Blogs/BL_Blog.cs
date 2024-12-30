@@ -39,11 +39,15 @@ public class BL_Blog
 
     #endregion
 
+    #region UpdateBlog
+
     public int UpdateBlog(int id, BlogModel requestModel)
     {
         var result = _daBlog.UpdateBlog(id, requestModel);
         return result;
     }
+
+    #endregion
 
     public int DeleteBlog(int id)
     {
