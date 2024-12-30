@@ -5,3 +5,5 @@ global using static MTKDotNetCore.AdoDotNetCustomService.Shared.AdoDotNetService
 global using System.Data;
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
+global using Microsoft.EntityFrameworkCore;
+global using MTKDotNetCore.AdoDotNetCustomService.Model;

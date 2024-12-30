@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MTKDotNetCore.AdoDotNetCustomService.Model;
-
-namespace MTKDotNetCore.AdoDotNetCustomService.Database;
+﻿namespace MTKDotNetCore.AdoDotNetCustomService.Database;
 
 internal class AppDbContext : DbContext
 {
