@@ -1,11 +1,4 @@
-﻿#region using
-
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-#endregion
-
-namespace MTKDotNetCore.DapperRestApi.Model
+﻿namespace MTKDotNetCore.DapperRestApi.Model
 {
     [Table("Tbl_Blog")]
     public class BlogModel
