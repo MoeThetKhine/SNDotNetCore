@@ -1,5 +1,7 @@
 ﻿namespace MTKDotNetCore.AdoDotNetWebApi.Model;
 
+#region BlogModel
+
 public class BlogModel
 {
     public long BlogId { get; set; }
@@ -8,3 +10,5 @@ public class BlogModel
     public string BlogContent { get; set; }
     public bool IsActive { get; set; }
 }
+
+#endregion
