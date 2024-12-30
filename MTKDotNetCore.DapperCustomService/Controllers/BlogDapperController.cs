@@ -75,6 +75,8 @@ public class BlogDapperController : ControllerBase
 
     #endregion
 
+    #region UpdateBlog
+
     [HttpPut("{id}")]
     public IActionResult UpdateBlog(int id, BlogModel blog)
     {
@@ -96,6 +98,8 @@ public class BlogDapperController : ControllerBase
         string message = result > 0 ? "Updating Successful." : "Updating Failed.";
         return Ok(message);
     }
+
+    #endregion
 
     [HttpDelete("{id}")]
     public IActionResult DeleteBlog(int id)
