@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace MTKDotNetCore.AdoDotNetCustomService.Database;
+﻿namespace MTKDotNetCore.AdoDotNetCustomService.Database;
 
 public class ConnectionStrings
 {
