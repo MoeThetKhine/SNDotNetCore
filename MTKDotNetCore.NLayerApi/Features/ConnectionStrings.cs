@@ -1,5 +1,7 @@
 ﻿namespace MTKDotNetCore.NLayerApi.Features;
 
+#region Connection String
+
 public class ConnectionStrings
 {
     public static SqlConnectionStringBuilder _sqlConnectionStringBuilder =
@@ -11,3 +13,5 @@ public class ConnectionStrings
             TrustServerCertificate = true
         };
 }
+
+#endregion
