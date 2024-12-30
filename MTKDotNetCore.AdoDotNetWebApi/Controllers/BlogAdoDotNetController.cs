@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MTKDotNetCore.AdoDotNetWebApi.Model;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using System.Data.SqlClient;
 using MTKDotNetCore.AdoDotNetWebApi.Database;
 
 namespace MTKDotNetCore.AdoDotNetWebApi.Controllers;
