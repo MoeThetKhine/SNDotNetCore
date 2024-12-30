@@ -9,6 +9,8 @@ public class AdoDotNetService
         _connectionString = connectionString;
     }
 
+    #region Query
+
     public List<T> Query<T>(string query, params AdoDotNetParameter[]? parameters)
     {
         SqlConnection connection = new SqlConnection(_connectionString);
@@ -21,7 +23,6 @@ public class AdoDotNetService
             //{
             //    cmd.Parameters.AddWithValue(item.Name,item.Value);
             //}
-
 
             var parametersArray = parameters
                 .Select(item => new SqlParameter(item.Name, item.Value))
@@ -37,6 +38,8 @@ public class AdoDotNetService
         List<T> lst = JsonConvert.DeserializeObject<List<T>>(json)!; //Json to C#
         return lst;
     }
+
+    #endregion
 
     public int Execute(string query, params AdoDotNetParameter[]? parameters)
     {
