@@ -41,6 +41,8 @@ public class AdoDotNetService
 
     #endregion
 
+    #region Execute
+
     public int Execute(string query, params AdoDotNetParameter[]? parameters)
     {
         SqlConnection connection = new SqlConnection(_connectionString);
@@ -63,6 +65,8 @@ public class AdoDotNetService
         connection.Close();
         return result;
     }
+
+    #endregion
 
     public T FirstOrDefault<T>(string query, params AdoDotNetParameter[]? parameters)
     {
